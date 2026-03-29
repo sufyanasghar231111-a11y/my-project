@@ -67,10 +67,6 @@ function FAQ() {
             </div>
                 </div>
               })}
-            
-           
-            
-          
             </div>
             
         </div>
