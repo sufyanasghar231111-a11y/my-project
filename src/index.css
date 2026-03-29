@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+
+.color{
+     background: linear-gradient(
+    to right,        /* direction: left → right */
+    #8b5cf6,         /* from-purple-500 */
+    #d946ef,         /* via-fuchsia-500 */
+    #ec4899          /* to-pink-500 */
+  );
+}
+.color1{
+  background: linear-gradient(
+    to right,
+    #7c3aed,   /* purple-600 */
+    #c026d3,   /* fuchsia-600 */
+    #db2777    /* pink-600 */
+  );
+}
+
+.gap{
+  gap: 15px;
+}
+
+.color2{
+  background: linear-gradient(
+  to right,
+  #faf5ff,  /* purple-50 */
+  #fdf4ff,  /* fuchsia-50 */
+  #fdf2f8   /* pink-50 */
+);
+}
+.color3 {
+  background: linear-gradient(
+    to right,
+    #f3e8ff,  /* purple-100 */
+    #fae8ff,  /* fuchsia-100 */
+    #fce7f3   /* pink-100 */
+  );
+}
+
+
