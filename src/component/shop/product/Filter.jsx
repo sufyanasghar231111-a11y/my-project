@@ -146,8 +146,6 @@ function Filter() {
                    .filter(elem => filterColor=== null? true:elem.color===filterColor)
                    .filter(elem => change=== "all"? true:elem.names.includes(change))
                     .map((elem,index)=>{
-                        
-                        
                         return <div key={index} className='w-full shadow-sm mb-3 overflow-hidden rounded '>
                             <div className='w-full md:h-40 lg:h-48 h-32'>
                             <img className='w-full h-full object-cover' src={elem.image} alt="" />

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import  { Route, Routes } from 'react-router-dom'
+import  { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './component/home/Body/Home'
 import Shop from './component/shop/Shop'
 import About from './component/About/About'
@@ -21,6 +21,7 @@ import FashionCategory from './component/otherCategory/FashionCategory'
 import gsap from 'gsap'
 
 function App() {
+  
   
   return (
     <div  className=''>

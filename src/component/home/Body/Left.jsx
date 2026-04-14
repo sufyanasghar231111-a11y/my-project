@@ -1,12 +1,12 @@
 import gsap from 'gsap';
 import React, { useEffect, useRef } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { RiStoreLine } from "react-icons/ri";
 import { RiEmotionHappyLine } from "react-icons/ri";
 import { RiTShirtLine } from "react-icons/ri";
 import { RiCustomerService2Fill } from "react-icons/ri";
 
 function Left() {
-
    
   return (
     <div className='pt-3 max-sm:pt-4 '>
@@ -18,7 +18,7 @@ function Left() {
             <p className='mb-7 max-sm:mb-2 max-sm:text-[12px] md:text-[14px] lg:text-[17px]'>Lorem ipsum dolor sit amet consectetur adipisicing <br /> ex nesciunt distinctio, repudiandae tempora officia.</p>
         </div>
         <div className='flex items-center gap-5 '>
-            <button className='px-5 max-sm:px-4 md:px-4 lg:px-5  max-sm:py-2 flex py-3  md:py-2 lg:py-3   items-center justify-center  text-white font-medium gap-1 max-sm:text-[9px] md:text-[12px] lg:text-[15px] rounded-full color'><RiStoreLine className='max-sm:text-[11px] ' /> <span>Shop Collection</span></button>
+            <Link to='/shop' className='px-5 max-sm:px-4 md:px-4 lg:px-5  max-sm:py-2 flex py-3  md:py-2 lg:py-3   items-center justify-center  text-white font-medium gap-1 max-sm:text-[9px] md:text-[12px] lg:text-[15px] rounded-full color'><RiStoreLine className='max-sm:text-[11px] ' /> <span>Shop Collection</span></Link>
             <button className='px-5 py-3 md:px-4 lg:px-5 max-sm:px-4 max-sm:text-[9px] max-sm:py-2  md:py-2 lg:py-3  rounded-full border-gray-300 bg-[#FAF4FE] md:text-[12px] lg:text-[15px] border-1'>
                 New Lookbook
             </button>
@@ -60,4 +60,4 @@ function Left() {
   )
 }
 
-export default Left
+export default Left;
