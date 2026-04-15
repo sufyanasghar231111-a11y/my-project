@@ -7,36 +7,33 @@ import LoginForm from './LoginForm'
 import DashBoard from './DashBoard'
 
 const UserDash = () => {
-  let {localst, setLocalst,falseEmail, setFalseEmail,user, setUser}=useContext(providerContext)
-  
+    let {userInput,setUserInput}=useContext(providerContext)
+    let [user, setUser]=useState(null)
+    // localStorage.clear()
 
-  // localStorage.clear()
-  useEffect(() => {
-  let logName = localStorage.getItem('logInUser');
-  if (logName) {
-    let userData = JSON.parse(logName);
-    setUser(userData);
-  }
-}, []);
-  function handleUser(email,password){
-    if(localst){
-        let users=localst.find((e)=> email === e.email && password=== e.password) 
-        if(users){
-          setUser(users)
-          localStorage.setItem('logInUser',JSON.stringify(users) )
-          setFalseEmail(false)
-        }else{
-          setFalseEmail(true)          
-        }
+    useEffect(()=>{
+      let data=localStorage.getItem('logInUser')
+      if(data){
+        JSON.parse(data)
+        setUser(data)
       }
+    },[])
+
+  function handleSubmit(email,password){
+    let fetch=userInput.find((e)=> e.email=== email && e.password === password)
+    if(fetch){
+      localStorage.setItem('logInUser',JSON.stringify(fetch))
+      setUser(fetch)
+    }
+    
   }
+
   return (
-    <div>
-      <div className='pt-20 '>
-       {
-        user ? <DashBoard  user={user} setUser={setUser} /> :<LoginForm handleUser={handleUser} />
-       }       
-      </div>
+    <div className='pt-20'>
+      {
+        user ?   <DashBoard />: <LoginForm handleSubmit={handleSubmit} /> 
+      }
+     
     </div>
   )
 }

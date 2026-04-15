@@ -47,24 +47,13 @@ const AuthProvider = ({ children }) => {
     component: '',
   })
   let [loading, setLoading] = useState(false)
-  let [localst, setLocalst]=useState([])
-  let [user, setUser]=useState(null)
-    let [falseEmail, setFalseEmail]=useState(false)
+  let [userInput, setUserInput]=useState([])
   useEffect(()=>{
-    setLocal();
-    const {log}=getLocal()
-    setLocalst(log)
+    setLocal()
+    let {log}=getLocal()
+    setUserInput(log)
   },[])
-
-  // signin inputs value
-
-  let [signinInput, setSigninInput]=useState({
-    name:'',
-    email:'',
-    password:''    
-  })
-
-
+  // localStorage.clear()
   useEffect(() => {
     localStorage.setItem('change', JSON.stringify(change))
   }, [change])
@@ -100,33 +89,9 @@ const AuthProvider = ({ children }) => {
     setFav(newfav)
   }
 
-  function handleSigninsubmit(e){
-     e.preventDefault()
-     setSigninInput({
-      name:'',
-      email:'',
-      password:''
-     })
-     setUser(true)
-     let newUser={
-      name:signinInput.name,
-      email:signinInput.email,
-      password:signinInput.password
-     }
-
-     setLocalst((prev)=>({
-      ...prev,
-      newUser
-     }))
-  }
-  function handleChangeSignin(e){
-    setSigninInput({
-      ...signinInput,
-      [e.target.name]:[e.target.value]
-    })
-  }
+  
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,localst, setLocalst,falseEmail, setFalseEmail ,handleSigninsubmit,setSigninInput, signinInput,handleChangeSignin,user, setUser}}  >
+    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput}}  >
       {children}
     </providerContext.Provider>
   )

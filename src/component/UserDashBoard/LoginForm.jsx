@@ -5,18 +5,18 @@ import logo from '../../../src/assets/logo.png'
 import { providerContext } from '../Other/AuthProvider'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
-const LoginForm = ({handleUser}) => {
-    let [email, setEmail]=useState('')
-    let [password, setPassword]=useState('')
-    let {falseEmail, setFalseEmail}=useContext(providerContext)
-
-    function handleSubmit(e){
+const LoginForm = ({handleSubmit}) => {
+  
+    
+    let location=useLocation()
+    let [email,setEmail]=useState('')
+    let [password,setPassword]=useState('')
+    function handlelog(e){
         e.preventDefault()
-        handleUser(email,password)
         setEmail('')
         setPassword('')
+        handleSubmit(email,password)
     }
-    let location=useLocation()
   return (
     <div>
         <Outlet />
@@ -35,7 +35,7 @@ const LoginForm = ({handleUser}) => {
                   </div>
                     <img className='w-full max-sm:max-h-40 h-full object-cover' src={gradient4} alt="" />              
                 </div>
-                <form onSubmit={handleSubmit} className='pt-5 max-sm:px-2' >
+                <form onSubmit={handlelog}  className='pt-5 max-sm:px-2' >
                     <div className='w-9 mb-4 flex gap-2 items-center'>
                         <img  src={logo} alt="" /> 
                         <h1 className='font-medium  md:hidden  bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent'>ADAAYA</h1>
@@ -45,20 +45,11 @@ const LoginForm = ({handleUser}) => {
                    
                     <div className=' mb-2'>
                         <h1 className='text-sm max-sm:text-[12px]'>Email: </h1>
-                        <input required value={email}   onChange={(elem)=>{
-                            setEmail(elem.target.value)
-                            setFalseEmail(false)
-                            }} type="email" placeholder='Your@email.com' className='px-2 py-2  text-sm mt-1 border-2  w-full border-gray-200 rounded focus:border-indigo-500  outline-0 transition-all duration-300 '  />
-                        { falseEmail &&(
-                                <p className='text-[11px] text-red-600'>Invalid email</p>
-                            )
-                        }
+                        <input value={email} onChange={(elem)=>{setEmail(elem.target.value)}}  type="email" placeholder='Your@email.com' className='px-2 py-2  text-sm mt-1 border-2  w-full border-gray-200 rounded focus:border-indigo-500  outline-0 transition-all duration-300 '  />
                     </div>
                     <div className='mb-2'>
                         <h1 className='text-sm max-sm:text-[12px]'>Password: </h1>
-                        <input required value={password} onChange={(elem)=>{
-                            setPassword(elem.target.value)   
-                            }} type="text" placeholder='Enter Password' className='px-2 py-2    text-sm mt-1 w-full border-2  border-gray-200 rounded focus:border-indigo-500  outline-0 transition-all duration-300 '  />
+                        <input  value={password} onChange={(elem)=>{setPassword(elem.target.value)}} type="text" placeholder='Enter Password' className='px-2 py-2    text-sm mt-1 w-full border-2  border-gray-200 rounded focus:border-indigo-500  outline-0 transition-all duration-300 '  />
                             <Link to='/user/signin' >hello</Link>
                     </div>
                     <button className='w-full mt-2 rounded px-2 py-2 color1 text-white font-semibold cursor-pointer'>Login</button>

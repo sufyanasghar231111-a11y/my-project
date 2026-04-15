@@ -4,8 +4,8 @@ import { useEffect } from "react";
   {
     id: 1,
     name: "John Doe",
-    email: "john@example.com",
-    password: "john123",
+    email: "sufyanasghar231111@gmail.com",
+    password: "123",
     pfp: "https://randomuser.me/api/portraits/men/1.jpg",
     orders: 12,
     returns: 2,
