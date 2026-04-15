@@ -19,6 +19,7 @@ import Health from './component/Category/category/Health'
 import Beauty from './component/Category/category/Beauty'
 import FashionCategory from './component/otherCategory/FashionCategory'
 import gsap from 'gsap'
+import SigninForm from './component/UserDashBoard/SigninForm'
 
 function App() {
   
@@ -44,7 +45,9 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/return' element={<Return />} />
         <Route path='/privacy' element={<Privacy />} />
-        <Route path='/user' element={<UserDash />} />
+        <Route path='/user' element={<UserDash />} >
+        <Route path='signin' element={<SigninForm />} />
+        </Route>
         <Route path='/fav' element={<Fav />} />
         <Route path='/cart' element={<Cart />} />
       </Routes>

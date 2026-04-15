@@ -48,12 +48,21 @@ const AuthProvider = ({ children }) => {
   })
   let [loading, setLoading] = useState(false)
   let [localst, setLocalst]=useState([])
+  let [user, setUser]=useState(null)
     let [falseEmail, setFalseEmail]=useState(false)
   useEffect(()=>{
     setLocal();
     const {log}=getLocal()
     setLocalst(log)
   },[])
+
+  // signin inputs value
+
+  let [signinInput, setSigninInput]=useState({
+    name:'',
+    email:'',
+    password:''    
+  })
 
 
   useEffect(() => {
@@ -91,9 +100,33 @@ const AuthProvider = ({ children }) => {
     setFav(newfav)
   }
 
+  function handleSigninsubmit(e){
+     e.preventDefault()
+     setSigninInput({
+      name:'',
+      email:'',
+      password:''
+     })
+     setUser(true)
+     let newUser={
+      name:signinInput.name,
+      email:signinInput.email,
+      password:signinInput.password
+     }
 
+     setLocalst((prev)=>({
+      ...prev,
+      newUser
+     }))
+  }
+  function handleChangeSignin(e){
+    setSigninInput({
+      ...signinInput,
+      [e.target.name]:[e.target.value]
+    })
+  }
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,localst, setLocalst,falseEmail, setFalseEmail }}  >
+    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,localst, setLocalst,falseEmail, setFalseEmail ,handleSigninsubmit,setSigninInput, signinInput,handleChangeSignin,user, setUser}}  >
       {children}
     </providerContext.Provider>
   )

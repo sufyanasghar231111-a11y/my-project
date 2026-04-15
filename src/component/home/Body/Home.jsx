@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import NavBar from './NavBar'
 import Left from './Left'
 import Right from './Right'
@@ -14,9 +14,12 @@ import Section7 from './Content/Section7'
 import gsap from 'gsap'
 
 function Home() {
+ 
   
   return (
-    <div>
+    <div className=''>
+      
+
        <div className='pt-18 '>
         <div className='color text-white p-3 h-12 w-full md:w-full '>
           <h1 className='max-sm:text-[14px]'>Limited Vacation & Super Offers</h1>

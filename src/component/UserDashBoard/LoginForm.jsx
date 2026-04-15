@@ -3,6 +3,7 @@ import NavBar from '../home/Body/NavBar'
 import gradient4 from '../../../src/assets/gradient4.png'
 import logo from '../../../src/assets/logo.png'
 import { providerContext } from '../Other/AuthProvider'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 const LoginForm = ({handleUser}) => {
     let [email, setEmail]=useState('')
@@ -15,9 +16,14 @@ const LoginForm = ({handleUser}) => {
         setEmail('')
         setPassword('')
     }
+    let location=useLocation()
   return (
     <div>
-      <div className='flex items-center justify-center min-h-[80vh]'>
+        <Outlet />
+        {
+            location.pathname==='/user' &&(
+                 <div className='flex items-center justify-center min-h-[80vh]'>
+
             <div className='shadow-[0_0_15px_rgba(0,0,0,0.2)] shadow-purple-200 rounded max-sm:flex-col-reverse max-sm:w-full max-sm:px-2 max-sm:mx-3  w-170 px-2 py-2  flex   justify-start max-sm:gap-4 gap-15 '>
                 <div className='w-77 max-sm:w-full   rounded overflow-hidden h-full relative'>
                   <div className='absolute flex max-sm:justify-start flex-col justify-between h-full py-3 px-5'>
@@ -51,15 +57,17 @@ const LoginForm = ({handleUser}) => {
                     <div className='mb-2'>
                         <h1 className='text-sm max-sm:text-[12px]'>Password: </h1>
                         <input required value={password} onChange={(elem)=>{
-                            setPassword(elem.target.value)
-                           
+                            setPassword(elem.target.value)   
                             }} type="text" placeholder='Enter Password' className='px-2 py-2    text-sm mt-1 w-full border-2  border-gray-200 rounded focus:border-indigo-500  outline-0 transition-all duration-300 '  />
-                         
+                            <Link to='/user/signin' >hello</Link>
                     </div>
                     <button className='w-full mt-2 rounded px-2 py-2 color1 text-white font-semibold cursor-pointer'>Login</button>
                 </form>
             </div>
         </div>
+            )
+        }
+     
     </div>
   )
 }

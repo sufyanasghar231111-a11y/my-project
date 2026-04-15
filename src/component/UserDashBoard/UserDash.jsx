@@ -7,8 +7,8 @@ import LoginForm from './LoginForm'
 import DashBoard from './DashBoard'
 
 const UserDash = () => {
-  let {localst, setLocalst,falseEmail, setFalseEmail}=useContext(providerContext)
-  let [user, setUser]=useState(null)
+  let {localst, setLocalst,falseEmail, setFalseEmail,user, setUser}=useContext(providerContext)
+  
 
   // localStorage.clear()
   useEffect(() => {

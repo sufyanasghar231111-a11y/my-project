@@ -11,8 +11,7 @@ useEffect(()=>{
 
     let data=fashion.filter((elem) => {return  elem.id ==id})
     setDetail(data)
-  
-},[fashion,id,setDetail])
+  },[fashion,id,setDetail])
 
 
 
