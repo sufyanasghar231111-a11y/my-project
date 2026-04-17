@@ -9,9 +9,6 @@ import services from '../Other/Service'
 import  {getLocal, setLocal}  from '../UserDashBoard/js/Login'
 export const providerContext = createContext()
 
-
-
-
 const AuthProvider = ({ children }) => {
   
 
@@ -48,8 +45,12 @@ const AuthProvider = ({ children }) => {
   })
   let [loading, setLoading] = useState(false)
   let [userInput, setUserInput]=useState([])
+  let [user, setUser]=useState(()=>{
+    let store=localStorage.getItem('logInUser')
+    return store? JSON.parse(store):null
+  })
   useEffect(()=>{
-    setLocal()
+    // setLocal()
     let {log}=getLocal()
     setUserInput(log)
   },[])
@@ -87,11 +88,54 @@ const AuthProvider = ({ children }) => {
       newfav.splice(index, 1)
     }
     setFav(newfav)
+  }  
+  //  localStorage.clear()
+
+  function handleLogout(){
+    localStorage.removeItem('logInUser')
+    setUser(null)
+    localStorage.removeItem('logInUser')
   }
 
-  
+let [sign, setSign]=useState({
+  name:'',
+  email:'',
+  password:''
+})  
+
+function handleSignSubmit(e){
+  e.preventDefault()
+  setSign({
+    name:'',
+    email:'',
+    password:''
+
+  })
+  let newUser={
+    name:sign.name,
+    email:sign.email,
+    password:sign.password,
+    profilePic: "https://randomuser.me/api/portraits/men/1.jpg"
+  }
+if(sign.name && sign.email && sign.password){
+  setUser(newUser)
+  localStorage.setItem('logInUser',JSON.stringify(newUser))
+}
+  setUserInput((prev) => [...(prev || []), newUser])
+  let data=JSON.parse(localStorage.getItem('users')) || []
+  data.push(newUser)
+  localStorage.setItem('users', JSON.stringify(data))
+}
+
+function handlechange(e){
+  setSign({
+    ...sign,
+    [e.target.name]:e.target.value
+  })
+}
+
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput}}  >
+    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser}}  >
       {children}
     </providerContext.Provider>
   )

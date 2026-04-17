@@ -7,14 +7,14 @@ import LoginForm from './LoginForm'
 import DashBoard from './DashBoard'
 
 const UserDash = () => {
-    let {userInput,setUserInput}=useContext(providerContext)
-    let [user, setUser]=useState(null)
-    // localStorage.clear()
-
+    let {userInput,setUserInput,user, setUser}=useContext(providerContext)
+    
     useEffect(()=>{
-      let data=localStorage.getItem('logInUser')
+      let pushData=JSON.parse(localStorage.getItem('users')) || []
+      setUserInput(pushData)
+
+      let data=JSON.parse(localStorage.getItem('logInUser'))
       if(data){
-        JSON.parse(data)
         setUser(data)
       }
     },[])
@@ -25,13 +25,11 @@ const UserDash = () => {
       localStorage.setItem('logInUser',JSON.stringify(fetch))
       setUser(fetch)
     }
-    
   }
-
   return (
     <div className='pt-20'>
       {
-        user ?   <DashBoard />: <LoginForm handleSubmit={handleSubmit} /> 
+        user ?   <DashBoard user={user} />: <LoginForm handleSubmit={handleSubmit} /> 
       }
      
     </div>

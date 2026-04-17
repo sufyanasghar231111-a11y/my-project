@@ -6,8 +6,6 @@ import { providerContext } from '../Other/AuthProvider'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
 const LoginForm = ({handleSubmit}) => {
-  
-    
     let location=useLocation()
     let [email,setEmail]=useState('')
     let [password,setPassword]=useState('')
@@ -41,7 +39,7 @@ const LoginForm = ({handleSubmit}) => {
                         <h1 className='font-medium  md:hidden  bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent'>ADAAYA</h1>
                     </div>
                     <h1 className='text-3xl max-sm:text-2xl font-semibold mb-2'> Please Login </h1>
-                    <p className='text-[12px] max-sm:text-[10px] leading-4 text-neutral-400 mb-4'>Access your order, item, food anytime <br /> and anywhere - and acces more information</p>
+                    <p className='text-[12px] max-sm:text-[10px] leading-4 text-neutral-400 mb-4'>Access your order, item, food anytime <br /> and anywhere - and get more information</p>
                    
                     <div className=' mb-2'>
                         <h1 className='text-sm max-sm:text-[12px]'>Email: </h1>
