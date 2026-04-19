@@ -7,10 +7,10 @@ import category from './Categoryjs'
 import fashionProducts from './Categoryjs'
 import services from '../Other/Service'
 import  {getLocal, setLocal}  from '../UserDashBoard/js/Login'
+import { useNavigate } from 'react-router-dom'
 export const providerContext = createContext()
 
 const AuthProvider = ({ children }) => {
-  
 
   let [data, setData] = useState(categories)
   let [hide, setHide] = useState(false)
@@ -49,6 +49,17 @@ const AuthProvider = ({ children }) => {
     let store=localStorage.getItem('logInUser')
     return store? JSON.parse(store):null
   })
+
+  let [notName, setNotName]=useState(false)
+  let [notEmail, setNotEmail]=useState(false)
+  let [notPassword, setNotPassword]=useState(false)
+  let [signloading, setSignloading]=useState(false)
+
+  let [notloginpassword,setNotloginpassword]=useState(false)
+  let [notloginemail, setNotloginemail]=useState(false)
+
+  let [delay, setDelay]=useState(false)
+
   useEffect(()=>{
     // setLocal()
     let {log}=getLocal()
@@ -103,28 +114,52 @@ let [sign, setSign]=useState({
   password:''
 })  
 
+let navigate=useNavigate()
 function handleSignSubmit(e){
   e.preventDefault()
-  setSign({
-    name:'',
-    email:'',
-    password:''
-
-  })
+ 
   let newUser={
     name:sign.name,
     email:sign.email,
     password:sign.password,
     profilePic: "https://randomuser.me/api/portraits/men/1.jpg"
   }
-if(sign.name && sign.email && sign.password){
-  setUser(newUser)
-  localStorage.setItem('logInUser',JSON.stringify(newUser))
-}
+
+  setTimeout(() => {
+    if(sign.name && sign.email && sign.password && sign.password.length>= 8){
+      setUser(newUser)
+      localStorage.setItem('logInUser',JSON.stringify(newUser))
+      navigate('/user')
+    }
+    setSign({
+ name:'',
+ email:'',
+ password:''
+
+})
+    setSignloading(false)
+  }, 1500);
+
+  
+  setSignloading(true)
   setUserInput((prev) => [...(prev || []), newUser])
   let data=JSON.parse(localStorage.getItem('users')) || []
   data.push(newUser)
   localStorage.setItem('users', JSON.stringify(data))
+
+  if(!sign.name){
+    setNotName(true)
+    setSignloading(false)
+  }
+  if(!sign.email){
+    setNotEmail(true)
+    setSignloading(false)
+  }
+  if(!sign.password){
+    setNotPassword(true)
+    setSignloading(false)
+  }
+  
 }
 
 function handlechange(e){
@@ -132,12 +167,10 @@ function handlechange(e){
     ...sign,
     [e.target.name]:e.target.value
   })
-
-
 }
 
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser}}  >
+    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay}}  >
       {children}
     </providerContext.Provider>
   )

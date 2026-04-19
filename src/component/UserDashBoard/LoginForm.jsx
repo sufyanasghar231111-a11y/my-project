@@ -4,16 +4,34 @@ import gradient4 from '../../../src/assets/gradient4.png'
 import logo from '../../../src/assets/logo.png'
 import { providerContext } from '../Other/AuthProvider'
 import { Link, Outlet, useLocation } from 'react-router-dom'
+import { RiLoader4Line } from 'react-icons/ri'
 
 const LoginForm = ({handleSubmit}) => {
+    let {notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay}=useContext(providerContext)
     let location=useLocation()
     let [email,setEmail]=useState('')
     let [password,setPassword]=useState('')
     function handlelog(e){
         e.preventDefault()
-        setEmail('')
-        setPassword('')
-        handleSubmit(email,password)
+        setTimeout(() => {
+            if(email && password && password.length>=8){
+                handleSubmit(email,password)
+            }
+            setEmail('')
+            setPassword('')
+            setDelay(false)
+        }, 1500);
+
+        setDelay(true)
+
+        if(!email){
+            setNotloginemail(true)
+            setDelay(false)
+        }
+        if(!password){
+            setNotloginpassword(true)
+            setDelay(false)
+        }
     }
   return (
     <div>
@@ -43,14 +61,49 @@ const LoginForm = ({handleSubmit}) => {
                    
                     <div className=' mb-2'>
                         <h1 className='text-sm max-sm:text-[12px]'>Email: </h1>
-                        <input value={email} onChange={(elem)=>{setEmail(elem.target.value)}}  type="email" placeholder='Your@email.com' className='px-2 py-2  text-sm mt-1 border-2  w-full border-gray-200 rounded focus:border-indigo-500  outline-0 transition-all duration-300 '  />
+                        <input value={email} onChange={(elem)=>{setEmail(elem.target.value)
+                            setNotloginemail(false)
+                        }}  type="email" placeholder='Your@email.com' className='px-2 py-2  text-sm mt-1 border-2  w-full border-gray-200 rounded focus:border-indigo-500  outline-0 transition-all duration-300 '  />
+                        {
+                            notloginemail &&(
+                                <h1 className={`text-[12px] text-red-400  transition-all duration-300 `}>Email Required: </h1>
+                            )
+                        }
                     </div>
                     <div className='mb-2'>
                         <h1 className='text-sm max-sm:text-[12px]'>Password: </h1>
-                        <input  value={password} onChange={(elem)=>{setPassword(elem.target.value)}} type="text" placeholder='Enter Password' className='px-2 py-2    text-sm mt-1 w-full border-2  border-gray-200 rounded focus:border-indigo-500  outline-0 transition-all duration-300 '  />
-                            <Link to='/user/signin' >hello</Link>
+                        <input  value={password} onChange={(elem)=>{setPassword(elem.target.value)
+                            setNotloginpassword(false)
+                        }} type="text" placeholder='Enter Password' className='px-2 py-2    text-sm mt-1 w-full border-2  border-gray-200 rounded focus:border-indigo-500  outline-0 transition-all duration-300 '  />
+                        {
+                            notloginpassword &&(
+                                <h1 className={`text-[12px] text-red-400  transition-all duration-300 `}>Password Required: </h1>
+                            )
+                        }
+                        {
+                            password.length >3 && password.length<7 ? (
+                                <div className='text-[12px] text-red-400'> Password too short </div>
+                            ):""
+                        }
+                            
                     </div>
-                    <button className='w-full mt-2 rounded px-2 py-2 color1 text-white font-semibold cursor-pointer'>Login</button>
+                    {
+
+                    }
+                    {
+                        delay? (
+                            <button className='w-full flex items-center justify-center mt-2 rounded px-2 py-2 color1 text-white font-semibold cursor-pointer'><RiLoader4Line className='w-5 h-5 rotate' /></button>
+                        ):(
+                            <button className='w-full mt-2 rounded px-2 py-2 color1 text-white font-semibold cursor-pointer'>Login</button>
+                        )
+                    }
+                    
+                  
+
+                     <div className='flex items-center font-medium pt-3 pb-2 justify-center'>
+                                            Are You New member ?
+                                           <Link to='/user/signin' className='pl-2 text-blue-600' >Signin</Link>
+                                        </div>
                 </form>
             </div>
         </div>

@@ -148,7 +148,7 @@ function Filter() {
                     .map((elem,index)=>{
                         return <div key={index} className='w-full shadow-sm mb-3 overflow-hidden rounded '>
                             <div className='w-full md:h-40 lg:h-48 h-32'>
-                            <img className='w-full h-full object-cover' src={elem.image} alt="" />
+                            <img className='w-full h-full object-cover  transform origin-center hover:scale-105 transition duration-400 cursor-pointer' src={elem.image} alt="" />
                             </div>
                             <div className='px-2 py-2'>
 

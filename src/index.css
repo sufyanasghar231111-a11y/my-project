@@ -40,3 +40,17 @@
 }
 
 
+
+
+.rotate{
+  animation: rotate   infinite 1.5s ;
+}
+
+@keyframes rotate {
+  to{
+    transform: rotate(360deg);
+  }
+  from{
+    transform: rotate(0deg);
+  }
+}

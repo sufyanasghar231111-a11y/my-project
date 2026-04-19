@@ -9,16 +9,16 @@ import Animation from './component/Other/Animation.jsx'
 import NavBar from './component/home/Body/NavBar.jsx'
 
 createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
   <AuthProvider>
     <StrictMode>
-  <BrowserRouter>
   <NavBar />
   <ScrollComponent />
   <Animation >
     <App />
   </Animation>
-  </BrowserRouter>
   </StrictMode>
   </AuthProvider>
+  </BrowserRouter>
 
 )
