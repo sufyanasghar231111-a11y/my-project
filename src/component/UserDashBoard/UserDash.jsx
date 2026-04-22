@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import NavBar from '../home/Body/NavBar'
-import gradient4 from '../../../src/assets/gradient4.png'
-import logo from '../../../src/assets/logo.png'
 import { providerContext } from '../Other/AuthProvider'
 import LoginForm from './LoginForm'
 import DashBoard from './DashBoard'

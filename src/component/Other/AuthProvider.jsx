@@ -6,7 +6,7 @@ import Change from './Change'
 import category from './Categoryjs'
 import fashionProducts from './Categoryjs'
 import services from '../Other/Service'
-import  {getLocal, setLocal}  from '../UserDashBoard/js/Login'
+import  {getLocal}  from '../UserDashBoard/js/Login'
 import { useNavigate } from 'react-router-dom'
 export const providerContext = createContext()
 
@@ -109,6 +109,7 @@ const AuthProvider = ({ children }) => {
       setUser(null)
       localStorage.removeItem('logInUser')
       setDelay(false)
+      setAnotherhide(false)
     }, 1500);
     setDelay(true)
   }

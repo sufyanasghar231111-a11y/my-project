@@ -1,14 +1,14 @@
-import React, { use, useContext } from 'react'
+import React, {  useContext } from 'react'
 import { FaShoppingBag, FaUndo, FaTimesCircle, FaCheckCircle } from 'react-icons/fa';
 import { providerContext } from '../Other/AuthProvider';
 import Logout from './Logout';
-import { RiCloseLine } from 'react-icons/ri';
+import { RiCloseLine, RiLoader4Line } from 'react-icons/ri';
 
 function DashBoard({user}) {
   console.log(user.profilePic);
   
 
-  let {handleLogout,anotherhide, setAnotherhide,delay, setDelay}=useContext(providerContext)
+  let {handleLogout,anotherhide, setAnotherhide,delay}=useContext(providerContext)
 
   return (
     <div className='w-full relative h-[561px]'>
@@ -23,7 +23,7 @@ function DashBoard({user}) {
       <div className='flex flex-col gap-3 py-3 px-4'>
         {
           delay ? (
-            <button onClick={handleLogout} className='py-2 cursor-pointer rounded-full color1 text-white font-semibold'> <RiCloseLine /></button>
+            <button onClick={handleLogout} className='py-2 cursor-not-allowed opacity-70 rounded-full color1 w-full flex items-center  justify-center text-white font-semibold'> <RiLoader4Line className='w-5 h-5 rotate' /></button>
           ):(
             <button onClick={handleLogout} className='py-2 cursor-pointer rounded-full color1 text-white font-semibold'>Log out</button>
           )
