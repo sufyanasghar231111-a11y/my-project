@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 export const providerContext = createContext()
 
 const AuthProvider = ({ children }) => {
-
+  
   let [data, setData] = useState(categories)
   let [hide, setHide] = useState(false)
   let [filterColor, setFilterColor] = useState(null)

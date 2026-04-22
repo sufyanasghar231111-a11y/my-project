@@ -13,7 +13,8 @@ function Logout({user}) {
           <div onClick={()=>{setHideLog(prev => !prev)}} className=' rounded-full  overflow-hidden cursor-pointer w-15 max-sm:w-7 max-sm:h-7 h-15'>
             <img src={user.profilePic}  />
           </div>  
-          <div className={` absolute w-70  ${hideLog? 'h-60  color2':'h-0  '} transition-all duration-300 overflow-hidden  ease-in-out rounded-lg  z-20  right-0`}>
+          
+          <div className={` absolute w-70  ${hideLog? 'h-60 color2':'h-0  '} transition-all duration-300 overflow-hidden  ease-in-out rounded-lg  z-20  right-0`}>
             <div className='px-4 py-2 flex items-center justify-between '>
                 <div className='flex items-center gap-2 text-sm'>
                 <div  className=' rounded-full  overflow-hidden cursor-pointer w-13 max-sm:w-7 max-sm:h-7 h-13'>
