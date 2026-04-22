@@ -59,6 +59,8 @@ const AuthProvider = ({ children }) => {
   let [notloginemail, setNotloginemail]=useState(false)
 
   let [delay, setDelay]=useState(false)
+  let [hideLog, setHideLog]=useState(false)
+  let [anotherhide, setAnotherhide]=useState(false)
 
   useEffect(()=>{
     // setLocal()
@@ -100,12 +102,15 @@ const AuthProvider = ({ children }) => {
     }
     setFav(newfav)
   }  
-  //  localStorage.clear()
-
+  
   function handleLogout(){
-    localStorage.removeItem('logInUser')
-    setUser(null)
-    localStorage.removeItem('logInUser')
+    setTimeout(() => {
+      localStorage.removeItem('logInUser')
+      setUser(null)
+      localStorage.removeItem('logInUser')
+      setDelay(false)
+    }, 1500);
+    setDelay(true)
   }
 
 let [sign, setSign]=useState({
@@ -117,7 +122,6 @@ let [sign, setSign]=useState({
 let navigate=useNavigate()
 function handleSignSubmit(e){
   e.preventDefault()
- 
   let newUser={
     name:sign.name,
     email:sign.email,
@@ -170,7 +174,7 @@ function handlechange(e){
 }
 
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay}}  >
+    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide}}  >
       {children}
     </providerContext.Provider>
   )
