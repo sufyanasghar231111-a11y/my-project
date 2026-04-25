@@ -1,14 +1,41 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import { providerContext } from '../../Other/AuthProvider'
 import { RiCheckLine, RiCloseFill, RiFilterLine, RiStarSLine } from 'react-icons/ri'
 
 
 function Filter() {
-    let {filterItem,hide,setHide,change,setChange,sort,setSort,price,setPrice,filterColor, setFilterColor}=useContext(providerContext)
+    let {filterItem,setHide,change,setChange,sort,setSort,price,filterColor, setFilterColor}=useContext(providerContext)
 
     let [rate, setRate]=useState(null)   
+    console.log(filterItem);
+    
     
     let [colorRating, setcolorRating]=useState(0)
+
+    const processData=useMemo(()=>{
+        return filterItem.map((elem)=>{       
+                return {
+                ...elem,
+                    tags:elem.tags.filter(tagitem =>
+                        rate === null?true:tagitem.rating >= rate[0] && tagitem.rating <= rate[1]
+                    )
+                    
+                    .filter( elem => price=== null?true:elem.price>=price[0] && elem.price<=price[1])
+                    .sort((a,b)=>{
+                        if(sort==='high'){return b.price-a.price}
+                        if(sort==='low'){return a.price-b.price}
+                        return 0
+                    } ) 
+
+                   .filter(elem => filterColor=== null? true:elem.color===filterColor)
+                   .filter(elem => change=== "all"? true:elem.names.includes(change))
+            }
+            }
+        )
+    },[filterColor,change,price,rate,filterItem, sort])
+
+    console.log(processData);
+    
 
   return (
     <div>
@@ -129,24 +156,10 @@ function Filter() {
             </div>
             <div className='flex-1  '>
                 <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-3' >
-            {filterItem.map((elem)=>{       
-                return (
-                    <>
-                    {elem.tags.filter(tagitem =>
-                        rate === null?true:tagitem.rating >= rate[0] && tagitem.rating <= rate[1]
-                    )
-                    
-                    .filter( elem => price=== null?true:elem.price>=price[0] && elem.price<=price[1])
-                    .sort((a,b)=>{
-                        if(sort==='high'){return b.price-a.price}
-                        if(sort==='low'){return a.price-b.price}
-                        return 0
-                    } ) 
-
-                   .filter(elem => filterColor=== null? true:elem.color===filterColor)
-                   .filter(elem => change=== "all"? true:elem.names.includes(change))
-                    .map((elem,index)=>{
-                        return <div key={index} className='w-full shadow-sm mb-3 overflow-hidden rounded '>
+            {
+            processData.map((item)=>
+                item.tags.map((elem)=>{
+                        return <div key={elem.key} className='w-full shadow-sm mb-3 overflow-hidden rounded '>
                             <div className='w-full md:h-40 lg:h-48 h-32'>
                             <img className='w-full h-full object-cover  transform origin-center hover:scale-105 transition duration-400 cursor-pointer' src={elem.image} alt="" />
                             </div>
@@ -165,11 +178,9 @@ function Filter() {
                             </div>
                             </div>
                         </div>
-                    }                   
+                })                   
                     )}
-                    </>
-                )
-            })}
+                    
             </div>
              </div>
             
