@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import NavBar from '../home/Body/NavBar'
 import gradient4 from '../../../src/assets/gradient4.png'
 import logo from '../../../src/assets/logo.png'
@@ -20,7 +20,7 @@ const LoginForm = ({handleSubmit}) => {
             setEmail('')
             setPassword('')
             setDelay(false)
-        }, 1500);
+        }, 2000);
 
         setDelay(true)
 
@@ -92,7 +92,7 @@ const LoginForm = ({handleSubmit}) => {
                     }
                     {
                         delay? (
-                            <button className='w-full flex items-center justify-center mt-2 rounded px-2 py-2 color1 text-white font-semibold cursor-pointer'><RiLoader4Line className='w-5 h-5 rotate' /></button>
+                            <button className='w-full flex items-center  opacity-70 justify-center mt-2 rounded px-2 py-2 color1 text-white font-semibold cursor-pointer'><RiLoader4Line className='w-5 h-5 rotate' /></button>
                         ):(
                             <button className='w-full mt-2 rounded px-2 py-2 color1 text-white font-semibold cursor-pointer'>Login</button>
                         )

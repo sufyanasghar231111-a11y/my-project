@@ -40,17 +40,22 @@
 }
 
 
+.rotate {
+ 
 
-
-.rotate{
-  animation: rotate   infinite 1.5s ;
+  animation: rotate 1.2s linear infinite;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
 }
 
 @keyframes rotate {
-  to{
-    transform: rotate(360deg);
-  }
-  from{
+  from {
     transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
 }
+
+
+
+

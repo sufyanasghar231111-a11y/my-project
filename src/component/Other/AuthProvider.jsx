@@ -66,6 +66,7 @@ const AuthProvider = ({ children }) => {
   useEffect(()=>{
     // setLocal()
     let {log}=getLocal()
+
     setUserInput(log)
   },[])
   // localStorage.clear()
@@ -111,7 +112,7 @@ const AuthProvider = ({ children }) => {
       localStorage.removeItem('logInUser')
       setDelay(false)
       setAnotherhide(false)
-    }, 1500);
+    }, 2000);
     setDelay(true)
   }
 
@@ -144,7 +145,7 @@ function handleSignSubmit(e){
 
 })
     setSignloading(false)
-  }, 1500);
+  }, 2000);
 
   
   setSignloading(true)

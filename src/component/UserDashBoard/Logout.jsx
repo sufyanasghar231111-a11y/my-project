@@ -3,7 +3,7 @@ import { providerContext } from '../Other/AuthProvider'
 import { RiAddLine, RiCloseLine, RiLoader4Line, RiUserLine } from 'react-icons/ri'
 
 function Logout({user}) {
-    let {hideLog, setHideLog, setAnotherhide,hideEdit, setHideEdit}=useContext(providerContext)
+    let {hideLog, setHideLog, setAnotherhide, setHideEdit}=useContext(providerContext)
   return (
     <div className='w-full '>
          

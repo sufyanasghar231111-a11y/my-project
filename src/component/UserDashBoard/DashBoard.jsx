@@ -4,9 +4,7 @@ import { providerContext } from '../Other/AuthProvider';
 import Logout from './Logout';
 import { RiCloseLine, RiLoader4Line } from 'react-icons/ri';
 
-function DashBoard({user}) {
-  console.log(user.profilePic);
-  
+function DashBoard({user}) {  
 
   let {handleLogout,anotherhide, setAnotherhide,delay,hideEdit, setHideEdit}=useContext(providerContext)
   
@@ -26,17 +24,16 @@ function DashBoard({user}) {
           delay ? (
             <button onClick={handleLogout} className='py-2 cursor-not-allowed opacity-70 rounded-full color1 w-full flex items-center  justify-center text-white font-semibold'> <RiLoader4Line className='w-5 h-5 rotate' /></button>
           ):(
-            <button onClick={handleLogout} className='py-2 cursor-pointer rounded-full color1 text-white font-semibold'>Log out</button>
+            <button  onClick={handleLogout} className='py-2 cursor-pointer rounded-full color1 text-white font-semibold'>Log out</button>
           )
         }
         
-        <button onClick={()=>{setAnotherhide(false)}} className='py-2 rounded-full color1 cursor-pointer text-white font-semibold'>Cancel</button>
+        <button disabled={delay} onClick={()=>{setAnotherhide(false)}} className={`py-2 rounded-full cursor-pointer color1  text-white font-semibold`}>Cancel</button>
       </div>
       </div>
           </>
         )
       }
-
 
       {
         hideEdit && 
@@ -65,14 +62,13 @@ function DashBoard({user}) {
           <div className='text-center text-[10px] pt-1'>
             Your profile helps people recognize you. Your name and username are also <br /> used in the Sora app.
           </div>
-          <div className='flex items-center justify-end gap-2 pt-3 gap-2'>
+          <div className='flex items-center justify-end  pt-3 gap-2'>
             <button onClick={()=>{setHideEdit(false)}} className='px-2 py-1 rounded-full bg-purple-300 text-sm font-medium cursor-pointer'>Cancel</button>
             <button className='px-2 py-1 rounded-full bg-purple-300 text-sm font-medium cursor-pointer'>Save</button>
           </div>
           </div>
         </>
         )
-
       }
       
      <Logout user={user} />
