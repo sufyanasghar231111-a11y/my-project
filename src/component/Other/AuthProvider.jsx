@@ -6,7 +6,7 @@ import Change from './Change'
 import category from './Categoryjs'
 import fashionProducts from './Categoryjs'
 import services from '../Other/Service'
-import  {getLocal}  from '../UserDashBoard/js/Login'
+import  {getLocal, setLocal}  from '../UserDashBoard/js/Login'
 import { useNavigate } from 'react-router-dom'
 export const providerContext = createContext()
 
@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
   let [hideEdit, setHideEdit]=useState(false)
 
   useEffect(()=>{
-    // setLocal()
+    setLocal()
     let {log}=getLocal()
 
     setUserInput(log)
@@ -122,6 +122,14 @@ let [sign, setSign]=useState({
   password:''
 })  
 
+let [editForm, setEditForm]=useState({
+  name:user?.name,
+  email:user?.email
+})
+
+
+
+
 let navigate=useNavigate()
 function handleSignSubmit(e){
   e.preventDefault()
@@ -144,6 +152,7 @@ function handleSignSubmit(e){
  password:''
 
 })
+
     setSignloading(false)
   }, 2000);
 
@@ -176,8 +185,44 @@ function handlechange(e){
   })
 }
 
+function handleEdit(e){
+  e.preventDefault()
+
+  setUser(prev => ({
+    ...(prev || {}),
+    name:editForm.name,
+    email:editForm.email
+  }))
+
+  setHideEdit(false)
+
+  setEditForm({
+    name:editForm.name,
+    email:editForm.email
+  })
+}
+
+ useEffect(()=>{
+      localStorage.setItem('logInUser',JSON.stringify(user))
+    },[user])
+
+    useEffect(() => {
+  setEditForm({
+    name: user?.name || "",
+    email: user?.email || ""
+  })
+}, [user])
+
+function handleChangeEdit(e){
+  const {name,value}=e.target
+  setEditForm(prev =>({
+    ...prev,
+    [name]:value
+  }))
+}
+
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit}}  >
+    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit}}  >
       {children}
     </providerContext.Provider>
   )
