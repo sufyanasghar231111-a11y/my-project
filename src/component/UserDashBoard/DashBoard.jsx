@@ -8,7 +8,8 @@ function DashBoard({user}) {
   console.log(user.profilePic);
   
 
-  let {handleLogout,anotherhide, setAnotherhide,delay}=useContext(providerContext)
+  let {handleLogout,anotherhide, setAnotherhide,delay,hideEdit, setHideEdit}=useContext(providerContext)
+  
 
   return (
     <div className='w-full relative h-[561px]'>
@@ -34,6 +35,44 @@ function DashBoard({user}) {
       </div>
           </>
         )
+      }
+
+
+      {
+        hideEdit && 
+        (
+
+        <>
+        <div onClick={()=>{setHideEdit(false)}} className=' cursor-pointer absolute w-full h-full z-30 backdrop-blur-sm inset-0 bg-black/50'>
+      </div>
+          <div className='absolute w-100 py-2 px-4   rounded-xl  color3 top-65 left-1/2 h-100 -translate-y-1/2 -translate-x-1/2 z-40'>
+            <div>
+              <h1 className='font-semibold text-xl'>Edit Profile</h1>
+          </div>
+          <div className='flex items-center justify-center pt-3'>
+          <div className='w-30 h-30 overflow-hidden   rounded-full'>
+            <img src={user.profilePic} alt="" />
+          </div>
+          </div>
+          <div className='border border-purple-400 flex flex-col mt-5 py-1.5 rounded-lg font-semibold  text-sm px-4 gap-1'>
+            Display Name
+            <input type="text" placeholder='' className='outline-0 ' />
+          </div>
+          <div className='border border-purple-400 flex flex-col mt-2 py-1.5 rounded-lg font-semibold  text-sm px-4 gap-1'>
+            Display Name
+            <input type="text" placeholder='' className='outline-0 ' />
+          </div>
+          <div className='text-center text-[10px] pt-1'>
+            Your profile helps people recognize you. Your name and username are also <br /> used in the Sora app.
+          </div>
+          <div className='flex items-center justify-end gap-2 pt-3 gap-2'>
+            <button onClick={()=>{setHideEdit(false)}} className='px-2 py-1 rounded-full bg-purple-300 text-sm font-medium cursor-pointer'>Cancel</button>
+            <button className='px-2 py-1 rounded-full bg-purple-300 text-sm font-medium cursor-pointer'>Save</button>
+          </div>
+          </div>
+        </>
+        )
+
       }
       
      <Logout user={user} />
