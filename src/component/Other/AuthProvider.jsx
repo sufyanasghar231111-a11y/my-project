@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
   let [hideEdit, setHideEdit]=useState(false)
 
   useEffect(()=>{
-    setLocal()
+    // setLocal()
     let {log}=getLocal()
 
     setUserInput(log)
