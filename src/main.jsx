@@ -9,12 +9,14 @@ import Animation from './component/Other/Animation.jsx'
 import NavBar from './component/home/Body/NavBar.jsx'
 import HomeContext from './ContextApi/HomeContext.jsx'
 import ShopContext from './ContextApi/ShopContext.jsx'
+import DashContext from './ContextApi/DashContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   <AuthProvider>
-    <ShopContext >
+    <DashContext>
 
+    <ShopContext >
   <HomeContext >
     <StrictMode>
   <NavBar />
@@ -25,6 +27,7 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>
   </HomeContext>
     </ShopContext>
+    </DashContext>
   </AuthProvider>
   </BrowserRouter>
 

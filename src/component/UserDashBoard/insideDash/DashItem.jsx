@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import { providerContext } from '../../Other/AuthProvider'
+import { dashProvider } from '../../../ContextApi/DashContext'
 
 
 const DashItem = () => {
-    let {dashtab, setHideBar,dashArr,firstName}=useContext(providerContext)
+    let {dashtab, setHideBar,dashArr,firstName}=useContext(dashProvider)
   return (
     <div>
       { dashtab=== 'dashboard' &&(

@@ -2,12 +2,13 @@ import React, { useContext, useState } from 'react'
 import NavBar from '../home/Body/NavBar'
 import gradient4 from '../../../src/assets/gradient4.png'
 import logo from '../../../src/assets/logo.png'
-import { providerContext } from '../Other/AuthProvider'
+// import { providerContext } from '../Other/AuthProvider'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { RiLoader4Line } from 'react-icons/ri'
+import { dashProvider } from '../../ContextApi/DashContext'
 
 const LoginForm = ({handleSubmit}) => {
-    let {notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,incorrect}=useContext(providerContext)
+    let {notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,incorrect}=useContext(dashProvider)
     let location=useLocation()
     let [email,setEmail]=useState('')
     let [password,setPassword]=useState('')

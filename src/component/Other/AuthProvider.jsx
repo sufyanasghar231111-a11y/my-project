@@ -4,9 +4,7 @@ import Change from './Change'
 // import category from './Categoryjs'
 import fashionProducts from './Categoryjs'
 import services from '../Other/Service'
-import  {getLocal, setLocal}  from '../UserDashBoard/js/Login'
-import { useNavigate } from 'react-router-dom'
-import dashboardData from '../Other/dash'
+
 export const providerContext = createContext()
 
 const AuthProvider = ({ children }) => {
@@ -35,41 +33,7 @@ const AuthProvider = ({ children }) => {
     component: '',
   })
   let [loading, setLoading] = useState(false)
-  let [userInput, setUserInput]=useState([])
-  let [user, setUser]=useState(()=>{
-    let store=localStorage.getItem('logInUser')
-    return store? JSON.parse(store):null
-  })
-
-  let [notName, setNotName]=useState(false)
-  let [notEmail, setNotEmail]=useState(false)
-  let [notPassword, setNotPassword]=useState(false)
-  let [signloading, setSignloading]=useState(false)
-
-  let [notloginpassword,setNotloginpassword]=useState(false)
-  let [notloginemail, setNotloginemail]=useState(false)
-
-  let [delay, setDelay]=useState(false)
-  let [hideLog, setHideLog]=useState(false)
-  let [anotherhide, setAnotherhide]=useState(false)
-  let [hideEdit, setHideEdit]=useState(false)
-
-  let [dashArr, setDashArr]=useState(dashboardData)
-   let [dashtab, setDashtab]=useState('dashboard')
-   const name=user.name
-    const firstName=name.trim().split(' ')[0];
-
-    const initial=(name.trim().split(' ')[0][0] + name.trim().split(' ').pop()[0]).toUpperCase()
-    let [hideBar, setHideBar]=useState(true)
-
-  useEffect(()=>{
-    // setLocal()
-    let {log}=getLocal()
-
-    setUserInput(log)
-  },[])
-  // localStorage.clear()
- 
+  
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
@@ -102,123 +66,10 @@ const AuthProvider = ({ children }) => {
     setFav(newfav)
   }  
   
-  function handleLogout(){
-    setTimeout(() => {
-      localStorage.removeItem('logInUser')
-      setUser(null)
-      localStorage.removeItem('logInUser')
-      setDelay(false)
-      setAnotherhide(false)
-    }, 2000);
-    setDelay(true)
-  }
-
-let [sign, setSign]=useState({
-  name:'',
-  email:'',
-  password:''
-})  
-
-let [editForm, setEditForm]=useState({
-  name:user?.name,
-  email:user?.email
-})
-
-let [incorrect, setIncorrect]=useState(false)
-
-let navigate=useNavigate()
-function handleSignSubmit(e){
-  e.preventDefault()
-  let newUser={
-    name:sign.name,
-    email:sign.email,
-    password:sign.password,
-    profilePic: "https://randomuser.me/api/portraits/men/1.jpg"
-  }
-
-  setTimeout(() => {
-    if(sign.name && sign.email && sign.password && sign.password.length>= 8){
-      setUser(newUser)
-      localStorage.setItem('logInUser',JSON.stringify(newUser))
-      navigate('/user')
-    }
-    setSign({
- name:'',
- email:'',
- password:''
-
-})
-
-    setSignloading(false)
-  }, 2000);
-
   
-  setSignloading(true)
-  setUserInput((prev) => [...(prev || []), newUser])
-  let data=JSON.parse(localStorage.getItem('users')) || []
-  data.push(newUser)
-  localStorage.setItem('users', JSON.stringify(data))
-
-  if(!sign.name){
-    setNotName(true)
-    setSignloading(false)
-  }
-  if(!sign.email){
-    setNotEmail(true)
-    setSignloading(false)
-  }
-  if(!sign.password){
-    setNotPassword(true)
-    setSignloading(false)
-  }
-  
-}
-
-function handlechange(e){
-  setSign({
-    ...sign,
-    [e.target.name]:e.target.value
-  })
-}
-
-function handleEdit(e){
-  e.preventDefault()
-
-  setUser(prev => ({
-    ...(prev || {}),
-    name:editForm.name,
-    email:editForm.email
-  }))
-
-  setHideEdit(false)
-
-  setEditForm({
-    name:editForm.name,
-    email:editForm.email
-  })
-}
-
- useEffect(()=>{
-      localStorage.setItem('logInUser',JSON.stringify(user))
-    },[user])
-
-    useEffect(() => {
-  setEditForm({
-    name: user?.name || "",
-    email: user?.email || ""
-  })
-}, [user])
-
-function handleChangeEdit(e){
-  const {name,value}=e.target
-  setEditForm(prev =>({
-    ...prev,
-    [name]:value
-  }))
-}
 
   return (
-    <providerContext.Provider value={{  secData, cart, setCart, addCart, addFav, fav, setFav, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit,incorrect, setIncorrect,dashArr, setDashArr,dashtab, setDashtab,hideBar, setHideBar,firstName,initial}}  >
+    <providerContext.Provider value={{  secData, cart, setCart, addCart, addFav, fav, setFav, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,setServiceData, setSecData}}  >
       {children}
     </providerContext.Provider>
   )
