@@ -1,38 +1,20 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext } from 'react'
 import {RiArrowRightSLine, RiPokerHeartsFill } from "react-icons/ri";
 import {RiArrowLeftSLine } from "react-icons/ri";
 import {RiArrowRightLine } from "react-icons/ri";
 import {RiArrowDropRightLine } from "react-icons/ri";
 
-import { providerContext } from '../../../Other/AuthProvider';
+// import { providerContext } from '../../../Other/AuthProvider';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { homeProvider } from '../../../../ContextApi/HomeContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 function Section() {
-    let {data,addFav,fav}=useContext(providerContext)
-    let [next, setNext]=useState(0)
-    let [fade, setFade]=useState(true)
-
-    function handleNext(){
-        setFade(false)
-        setTimeout(()=>{
-            setNext((prev) =>(prev+1) % data.length)
-            setFade(true)
-        },200)
-    }
-    function handlePre(){
-        setFade(false)
-        setTimeout(() => {
-            setNext(prev=> prev === 0 ? data.length -1: prev-1)
-        setFade(true)
-        }, 200);
-    }
-    
-
+   let {next,fade,handleNext, handlePre,data}=useContext(homeProvider)
    
    
   return (
