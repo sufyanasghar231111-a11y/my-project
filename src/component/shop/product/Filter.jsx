@@ -1,41 +1,10 @@
-import React, { useContext, useMemo, useState } from 'react'
-import { providerContext } from '../../Other/AuthProvider'
+import React, { useContext } from 'react'
 import { RiCheckLine, RiCloseFill, RiFilterLine, RiStarSLine } from 'react-icons/ri'
+import { shopProvider } from '../../../ContextApi/ShopContext'
 
 
 function Filter() {
-    let {filterItem,setHide,change,setChange,sort,setSort,price,filterColor, setFilterColor}=useContext(providerContext)
-
-    let [rate, setRate]=useState(null)   
-    console.log(filterItem);
-    
-    
-    let [colorRating, setcolorRating]=useState(0)
-
-    const processData=useMemo(()=>{
-        return filterItem.map((elem)=>{       
-                return {
-                ...elem,
-                    tags:elem.tags.filter(tagitem =>
-                        rate === null?true:tagitem.rating >= rate[0] && tagitem.rating <= rate[1]
-                    )
-                    
-                    .filter( elem => price=== null?true:elem.price>=price[0] && elem.price<=price[1])
-                    .sort((a,b)=>{
-                        if(sort==='high'){return b.price-a.price}
-                        if(sort==='low'){return a.price-b.price}
-                        return 0
-                    } ) 
-
-                   .filter(elem => filterColor=== null? true:elem.color===filterColor)
-                   .filter(elem => change=== "all"? true:elem.names.includes(change))
-            }
-            }
-        )
-    },[filterColor,change,price,rate,filterItem, sort])
-
-    console.log(processData);
-    
+    let {setHide,change,setChange,sort,setSort,filterColor,colorRating,setRate,rate, setcolorRating, setFilterColor,processData}=useContext(shopProvider)
 
   return (
     <div>

@@ -1,29 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { providerContext } from '../../../Other/AuthProvider';
 import {RiArrowDropRightLine, RiArrowLeftSLine } from "react-icons/ri";
 import {RiArrowRightSLine,RiPokerHeartsFill  } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { homeProvider } from '../../../../ContextApi/HomeContext';
 function Section2() {
-    let {secData,cart,setCart,addCart,fav,addFav}=useContext(providerContext)
-    let [next,setNext]=useState(0)
-    let [fade, setFade]=useState(true)
-    console.log(fav);
+    let {secData,cart,addCart,fav,addFav}=useContext(providerContext)
     
-    function handleNext(){
-        setFade(false)
-        setTimeout(()=>{
-
-            setNext((prev)=>(prev+1) % secData.length)
-            setFade(true)
-        },200)
-    }
-    function handleprev(){
-         setFade(false)
-        setTimeout(()=>{
-        setNext(prev => prev ===0? secData.length-1:prev-1)
-         setFade(true)
-         },200)
-    }
+     let {next,fade,handleNext, handlePre,data}=useContext(homeProvider)
+    
   return (
     <div className='pt-12 mb-4'>
         <div className=''>
@@ -38,7 +23,7 @@ function Section2() {
              <p className='max-sm:text-center'>Lorem ipsum dolor sit amet consectetur adipisicing .</p>
         </div>
         <div className='flex items-end justify-center relative max-sm:mx-4'>
-             <div onClick={()=>{handleprev()}} className='px-2 py-2 mr-3 rounded-full bg-gray-300 pt-2 max-sm:absolute max-sm:-bottom-12 max-sm:left-10 hover:bg-gray-200 transition-all ease-in duration-300 cursor-pointer'>
+             <div onClick={()=>{handlePre()}} className='px-2 py-2 mr-3 rounded-full bg-gray-300 pt-2 max-sm:absolute max-sm:-bottom-12 max-sm:left-10 hover:bg-gray-200 transition-all ease-in duration-300 cursor-pointer'>
             <RiArrowLeftSLine  className='w-5 h-5 ' />
             </div>
         <div className='flex w-220 max-sm:w-130  items-center justify-center gap-4 overflow-hidden pt-10 '>

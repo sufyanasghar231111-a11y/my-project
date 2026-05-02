@@ -1,9 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
-import categories from './Data'
 import products from './SecData'
-import testimonials from './CustomerTestimonials'
 import Change from './Change'
-import category from './Categoryjs'
+// import category from './Categoryjs'
 import fashionProducts from './Categoryjs'
 import services from '../Other/Service'
 import  {getLocal, setLocal}  from '../UserDashBoard/js/Login'
@@ -13,18 +11,11 @@ export const providerContext = createContext()
 
 const AuthProvider = ({ children }) => {
   
-  let [data, setData] = useState(categories)
-  let [hide, setHide] = useState(false)
-  let [filterColor, setFilterColor] = useState(null)
+  
   let [fashion, setFashion] = useState(fashionProducts)
   let [secData, setSecData] = useState(products)
-  let [change, setChange] = useState(() => {
-    let store = localStorage.getItem('change')
-    return store ? JSON.parse(store) : 'all'
-  })
-  let [test, setTest] = useState(testimonials)
-  let [sort, setSort] = useState(null)
-  let [price, setPrice] = useState(null)
+ 
+ 
   let [cart, setCart] = useState(() => {
     let store = localStorage.getItem('cart')
     return store ? JSON.parse(store) : []
@@ -33,7 +24,6 @@ const AuthProvider = ({ children }) => {
     let store = localStorage.getItem('fav')
     return store ? JSON.parse(store) : []
   })
-  let [filterItem, setFilterItem] = useState(Change)
   let [detail, setDetail] = useState([])
   let [serviceData, setServiceData] = useState(services)
 
@@ -79,9 +69,7 @@ const AuthProvider = ({ children }) => {
     setUserInput(log)
   },[])
   // localStorage.clear()
-  useEffect(() => {
-    localStorage.setItem('change', JSON.stringify(change))
-  }, [change])
+ 
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
@@ -230,7 +218,7 @@ function handleChangeEdit(e){
 }
 
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit,incorrect, setIncorrect,dashArr, setDashArr,dashtab, setDashtab,hideBar, setHideBar,firstName,initial}}  >
+    <providerContext.Provider value={{  secData, cart, setCart, addCart, addFav, fav, setFav, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit,incorrect, setIncorrect,dashArr, setDashArr,dashtab, setDashtab,hideBar, setHideBar,firstName,initial}}  >
       {children}
     </providerContext.Provider>
   )

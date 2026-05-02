@@ -1,57 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import gradient from '../../../../assets/gradient.png'
 import { RiArrowRightLine } from 'react-icons/ri'
-import { data, Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
+import { homeProvider } from '../../../../ContextApi/HomeContext'
 
 
 
 
 function Section3() {
     // localStorage.clear()
-    let [time, setTime]=useState({ days:200,
-   hours:10,
-   min:10,
-   sec:0})
-
-// useEffect(()=>{
-//     localStorage.setItem('time', time)
-// },[time])
-
-useEffect(()=>{
-    let timer= setInterval(()=>{
-        setTime((prev)=>{
-            let {days,hours,min,sec}=prev
-            if(sec>0){
-                sec--
-            }
-            else{
-                sec=59;
-                if(min>0){
-                    min--;
-                }
-                else{
-                    min=59;
-                    if(hours>0){
-                        hours--;
-                    }
-                    else{
-                        hours=23;
-                        if(days>0){
-                            days--
-                        }
-                        else{
-                            clearInterval(timer)
-                            return {days:0, hours:0,min:0,sec:0}
-                        }
-                    }
-                }
-            }
-            return {days, hours,min,sec}
-        })
-    },1000)
-    return ()=> clearInterval(timer)
-},[])
-    
+   let {time}=useContext(homeProvider)
     
   return (
     <div className='pt-20 max-sm:pt-10 max-sm:mx-5  lg:mx-30 mx-9 md:mx-10 mb-5 flex items-center  justify-center'>

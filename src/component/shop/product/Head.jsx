@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { RiArrowUpDownFill, RiBox3Line, RiEqualizerLine, RiLoopRightLine } from 'react-icons/ri'
-import { providerContext } from '../../Other/AuthProvider'
+import { shopProvider } from '../../../ContextApi/ShopContext'
 
 function Head() {
-    let { filterItem, hide, setHide, setChange, change,sort ,setSort,price,setPrice,filterColor, setFilterColor } = useContext(providerContext)
+    let {  hide, setHide, setChange, change,sort ,setSort,setFilterColor } = useContext(shopProvider)
 
     return (
         <div className='px-25 max-sm:px-5 py-8'>

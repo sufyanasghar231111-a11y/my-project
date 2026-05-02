@@ -1,6 +1,5 @@
 import React from 'react'
 import NavBar from '../home/Body/NavBar'
-import gradient2 from '../../assets/gradient2.png'
 import image from '../../assets/image.png'
 import { RiArrowRightSLine, RiBox3Line, RiCaravanLine, RiEyeLine, RiFlashlightLine, RiHeartLine, RiLineChartLine, RiPriceTag3Line, RiSearchLine, RiShieldLine, RiShoppingCartLine, RiStarLine, RiUserAddLine, RiVipCrown2Line } from 'react-icons/ri'
 import Head from './product/Head'

@@ -1,19 +1,13 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { RiArrowLeftSLine, RiArrowRightSLine, RiCustomerServiceLine, RiStarSFill, RiVerifiedBadgeFill, RiVerifiedBadgeLine, RiVipCrown2Line, RiVipCrownFill } from 'react-icons/ri'
 
 import { FaRegThumbsUp, FaThumbsUp } from 'react-icons/fa';
 import right from '../../../../assets/right.png'
-import { providerContext } from '../../../Other/AuthProvider';
+// import { providerContext } from '../../../Other/AuthProvider';
+import { homeProvider } from '../../../../ContextApi/HomeContext';
 
 function Section5() {
-    let {test}=useContext(providerContext)
-    let [next, setNext]=useState(0)
-    function handleNext(){
-        setNext((prev)=> (prev+1) % test.length)
-    }
-    function handlePrev(){
-        setNext(prev === 0? test.length-1:prev-1)
-    }
+   let {test,next,handleNext, handlePre}=useContext(homeProvider)
   return (
     <div className='pt-20 max-sm:pt-15'>
          <div className='flex items-center justify-center flex-col' >
@@ -40,7 +34,7 @@ function Section5() {
             </div>
         </div>
         <div className='flex max-sm:relative items-center justify-center mb-5 '>
-           <div onClick={handlePrev} className='px-2 max-sm:absolute max-sm:-bottom-7 max-sm:left-10 py-2 rounded-full bg-gray-200'>
+           <div onClick={handlePre} className='px-2 max-sm:absolute max-sm:-bottom-7 max-sm:left-10 py-2 rounded-full bg-gray-200'>
             <RiArrowLeftSLine  className='w-5 h-5 ' />
             </div>
               <div className='flex w-300 max-sm:flex max-sm:items-center max-sm:justify-center  px-5 py-5 gap-3 overflow-hidden'>
