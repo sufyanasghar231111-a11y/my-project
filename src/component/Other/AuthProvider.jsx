@@ -127,8 +127,7 @@ let [editForm, setEditForm]=useState({
   email:user?.email
 })
 
-
-
+let [incorrect, setIncorrect]=useState(false)
 
 let navigate=useNavigate()
 function handleSignSubmit(e){
@@ -222,7 +221,7 @@ function handleChangeEdit(e){
 }
 
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit}}  >
+    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit,incorrect, setIncorrect}}  >
       {children}
     </providerContext.Provider>
   )

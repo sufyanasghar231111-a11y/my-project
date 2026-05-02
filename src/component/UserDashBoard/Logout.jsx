@@ -7,7 +7,7 @@ function Logout({user}) {
     const name=user.name
     const firstName=name.trim().split(' ')[0];
 
-    const initial=(name.split(' ')[0][0] + name.split(' ').pop()[0]).toUpperCase()
+    const initial=(name.trim().split(' ')[0][0] + name.trim().split(' ').pop()[0]).toUpperCase()
 
   return (
     <div className='w-full '>

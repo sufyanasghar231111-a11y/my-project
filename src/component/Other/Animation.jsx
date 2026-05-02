@@ -41,7 +41,8 @@ const Animation = ({children}) => {
     gsap.from(delay.current,{
         opacity:0,
         delay:1.3,
-        scale:1.06
+        scale:1.06,
+        transformOrigin: "center center"
     })
   },[currentPath])
   return (

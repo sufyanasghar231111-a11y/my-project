@@ -5,7 +5,7 @@ import LoginForm from './LoginForm'
 import DashBoard from './DashBoard'
 
 const UserDash = () => {
-    let {userInput,setUserInput,user, setUser}=useContext(providerContext)
+    let {userInput,setUserInput,user, setUser, setIncorrect}=useContext(providerContext)
     
     useEffect(()=>{
       let pushData=JSON.parse(localStorage.getItem('users')) || []
@@ -18,11 +18,16 @@ const UserDash = () => {
     },[])
 
   function handleSubmit(email,password){
-    let fetch=userInput.find((e)=> e.email=== email && e.password === password)
-    if(fetch){
-      localStorage.setItem('logInUser',JSON.stringify(fetch))
-      setUser(fetch)
+
+      let fetch=userInput.find((e)=> e.email=== email && e.password === password)
+      if(fetch){
+        localStorage.setItem('logInUser',JSON.stringify(fetch))
+        setUser(fetch)
+      }
+    else{
+      setIncorrect(true)
     }
+
   }
   return (
     <div className='pt-20'>

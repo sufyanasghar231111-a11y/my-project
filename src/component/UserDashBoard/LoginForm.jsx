@@ -7,7 +7,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import { RiLoader4Line } from 'react-icons/ri'
 
 const LoginForm = ({handleSubmit}) => {
-    let {notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay}=useContext(providerContext)
+    let {notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,incorrect}=useContext(providerContext)
     let location=useLocation()
     let [email,setEmail]=useState('')
     let [password,setPassword]=useState('')
@@ -97,9 +97,14 @@ const LoginForm = ({handleSubmit}) => {
                             <button className='w-full mt-2 rounded px-2 py-2 color1 text-white font-semibold cursor-pointer'>Login</button>
                         )
                     }
-                    
-                  
+                    {
+                        incorrect && (
 
+                    <div className='text-center text-sm pt-1 text-red-500'>
+                        Invalid email or password          
+                         </div>
+                        )
+                    }
                      <div className='flex items-center font-medium pt-3 pb-2 justify-center'>
                                             Are You New member ?
                                            <Link to='/user/signin' className='pl-2 text-blue-600' >Signin</Link>
