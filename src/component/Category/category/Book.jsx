@@ -30,7 +30,7 @@ const Book = () => {
              
             </div>
             <Link to={`/category/fashion/${elem.id}`}>
-            <img    className='object-cover h-full cursor-pointer w-full' loading='lazy' src={elem.image} alt="" />
+            <img    className='object-cover h-full cursor-pointer w-full' loading='lazy' decoding="async" src={elem.image} alt="" />
             </Link>
           </div>
           <div className='px-4 pt-3'>

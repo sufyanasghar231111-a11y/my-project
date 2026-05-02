@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../../../assets/logo.png'
 import { BsHeart } from 'react-icons/bs'
@@ -7,7 +7,7 @@ import { RiUserLine } from "react-icons/ri";
 import { RiMenu3Line } from "react-icons/ri";
 import { RiCloseLine } from "react-icons/ri";
 import { providerContext } from '../../Other/AuthProvider';
-import gsap from 'gsap';
+// import gsap from 'gsap';
 
 
 
@@ -32,12 +32,12 @@ function NavBar() {
 
                 <Link onClick={() => { setClose(false) }} to='/' className='border-y w-full  border-neutral-500 py-1   text-xl font-semibold'>Home</Link>
 
-                <Link className=' py-1   w-full text-xl font-semibold' to='/shop'>Shop</Link>
-                <Link className=' py-1  w-full text-xl font-semibold border-y border-neutral-500' to='/category'>Category</Link>
-                <Link className=' py-1  w-full text-xl font-semibold' to='/about'>About</Link>
-                <Link className=' py-1  w-full text-xl font-semibold border-y border-neutral-500' to='/return'>Return & FAQ</Link>
-                <Link className=' py-1  w-full text-xl font-semibold ' to='/privacy'>Privacy Policy</Link>
-                <Link className=' py-1 w-full text-xl font-semibold border-y  border-neutral-500' to='/user'>User Dashboard</Link>
+                <Link onClick={() => { setClose(false) }} className=' py-1   w-full text-xl font-semibold' to='/shop'>Shop</Link>
+                <Link onClick={() => { setClose(false) }} className=' py-1  w-full text-xl font-semibold border-y border-neutral-500' to='/category'>Category</Link>
+                <Link onClick={() => { setClose(false) }} className=' py-1  w-full text-xl font-semibold' to='/about'>About</Link>
+                <Link onClick={() => { setClose(false) }} className=' py-1  w-full text-xl font-semibold border-y border-neutral-500' to='/return'>Return & FAQ</Link>
+                <Link onClick={() => { setClose(false) }} className=' py-1  w-full text-xl font-semibold ' to='/privacy'>Privacy Policy</Link>
+                <Link onClick={() => { setClose(false) }} className=' py-1 w-full text-xl font-semibold border-y  border-neutral-500' to='/user'>User Dashboard</Link>
               </div>
             </div>
             <div className='flex items-center justify-center gap-3 '>

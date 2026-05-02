@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+// import React, { useEffect, useRef, useState } from 'react'
 import NavBar from './NavBar'
 import Left from './Left'
 import Right from './Right'
-import cleanup from '../../../assets/cleanup.png'
+// import cleanup from '../../../assets/cleanup.png'
 import Section from './Content/Section'
 import Section1 from './Content/Section1'
 import Section2 from './Content/Section2'
@@ -11,7 +11,7 @@ import Section4 from './Content/Section4'
 import Section5 from './Content/Section5'
 import Section6 from './Content/Section6'
 import Section7 from './Content/Section7'
-import gsap from 'gsap'
+// import gsap from 'gsap'
 
 function Home() {
  

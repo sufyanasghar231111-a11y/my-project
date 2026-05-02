@@ -30,7 +30,7 @@ const Toy = () => {
              
             </div>
             <Link to={`/category/fashion/${elem.id}`}>
-            <img    className='object-cover h-full cursor-pointer w-full' src={elem.image} alt="" />
+            <img    className='object-cover h-full cursor-pointer w-full' src={elem.image} decoding="async" loading='lazy' alt="" />
             </Link>
           </div>
           <div className='px-4 pt-3'>

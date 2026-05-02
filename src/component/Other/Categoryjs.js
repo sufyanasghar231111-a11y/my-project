@@ -4,11 +4,10 @@ const fashionProducts = [
     name: "Men Casual T-Shirt",
     brand: "UrbanStyle",
     rating: 4.5,
-    
     price: 20,
     originalPrice: 25,
     discount: "20%",
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&auto=format&fit=crop",
     description: "Comfortable cotton casual t-shirt for everyday wear"
   },
   {
@@ -21,7 +20,7 @@ const fashionProducts = [
     originalPrice: 45,
     discount: "22%",
     sold: "Sold Out",
-    image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c",
+    image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&auto=format&fit=crop",
     description: "Lightweight summer dress with modern design"
   },
   {
@@ -33,7 +32,7 @@ const fashionProducts = [
     price: 40,
     originalPrice: 60,
     discount: "40%",
-    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop",
     description: "Stylish blue denim jacket for casual outfits"
   },
   {
@@ -46,7 +45,7 @@ const fashionProducts = [
     originalPrice: 70,
     discount: "70%",
     sold: "Sold Out",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop",
     description: "Trendy sneakers for sports and casual use"
   },
   {
@@ -58,7 +57,7 @@ const fashionProducts = [
     price: 44,
     originalPrice: 55,
     discount: "20%",
-    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
+    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop",
     description: "Elegant handbag perfect for daily use"
   },
   {
@@ -70,7 +69,7 @@ const fashionProducts = [
     price: 45,
     originalPrice: 50,
     discount: "10%",
-    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf",
+    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&auto=format&fit=crop",
     description: "Classic formal shirt suitable for office wear"
   },
   {
@@ -82,7 +81,7 @@ const fashionProducts = [
     price: 55,
     originalPrice: 75,
     discount: "25%",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&auto=format&fit=crop",
     description: "Elegant high heels for parties and events"
   },
   {
@@ -95,7 +94,7 @@ const fashionProducts = [
     originalPrice: 50,
     discount: "30%",
     sold: "Sold Out",
-    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7",
+    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&auto=format&fit=crop",
     description: "Warm hoodie perfect for winter season"
   }
 ];

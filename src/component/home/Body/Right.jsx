@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from 'react'
 import upper from '../../../assets/upper.png'
 import collection from '../../../assets/collection.png'
 import edit from '../../../assets/edit.png'
-import gsap from 'gsap'
+// import gsap from 'gsap'
 
 function Right() {
  

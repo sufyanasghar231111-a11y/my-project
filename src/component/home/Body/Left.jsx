@@ -1,5 +1,4 @@
-import gsap from 'gsap';
-import React, { useEffect, useRef } from 'react'
+// import gsap from 'gsap';
 import { Link, NavLink } from 'react-router-dom'
 import { RiStoreLine } from "react-icons/ri";
 import { RiEmotionHappyLine } from "react-icons/ri";

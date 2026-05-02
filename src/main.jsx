@@ -7,10 +7,12 @@ import AuthProvider from './component/Other/AuthProvider.jsx'
 import ScrollComponent from './component/Other/ScrollComponent.jsx'
 import Animation from './component/Other/Animation.jsx'
 import NavBar from './component/home/Body/NavBar.jsx'
+import HomeContext from './ContextApi/HomeContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   <AuthProvider>
+  <HomeContext >
     <StrictMode>
   <NavBar />
   <ScrollComponent />
@@ -18,6 +20,7 @@ createRoot(document.getElementById('root')).render(
     <App />
   </Animation>
   </StrictMode>
+  </HomeContext>
   </AuthProvider>
   </BrowserRouter>
 
