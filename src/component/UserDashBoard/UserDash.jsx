@@ -30,7 +30,7 @@ const UserDash = () => {
 
   }
   return (
-    <div className='pt-20'>
+    <div className='pt-15'>
       {
         user ?   <DashBoard user={user} />: <LoginForm handleSubmit={handleSubmit} /> 
       }

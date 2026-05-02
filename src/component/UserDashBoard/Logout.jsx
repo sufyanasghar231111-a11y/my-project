@@ -12,7 +12,7 @@ function Logout({user}) {
   return (
     <div className='w-full '>
          
-      <div className='flex items-center   justify-between px-15 max-sm:gap-5 max-sm:px-3 max-sm:py-2 py-5'>
+      {/* <div className='flex items-center   justify-between px-15 max-sm:gap-5 max-sm:px-3 max-sm:py-2 py-5'>
         <h1 className='text-3xl max-sm:text-xl font-semibold'>User <br /> DashBoard</h1>
         <div className=' relative '>
           <div onClick={()=>{setHideLog(prev => !prev)}} className=' rounded-full  overflow-hidden cursor-pointer relative  w-15 max-sm:w-7 max-sm:h-7 h-15'>
@@ -44,6 +44,40 @@ function Logout({user}) {
                     setHideLog(false)
                 }} className='w-full color1 py-2 rounded-full text-white font-semibold cursor-pointer'>Log out</button>
             </div>
+          </div>
+        </div>
+      </div> */}
+
+      <div className='w-full flex'>
+        <div className='w-[20%] py-5 shadow-[-5px_0_10px_rgba(0,0,0,0.2)]'>
+          <div className='flex flex-col items-center justify-center'>
+          <div className='color1 z-10  w-17 h-17 rounded-full  flex items-center justify-center text-white text-xl font-semibold'>
+              {initial}
+            </div>
+            <div className='font-semibold text-2xl capitalize  pt-3'>
+              {user.name}
+            </div>
+            <div className='py-5  text-sm text-[#888888] '>
+              {user.email}
+            </div>
+          </div>
+          <div className='border-t border-gray-300'>
+          </div>
+          <div className=' flex flex-col  pt-5'>
+            <h1 className='w-full py-3 px-7  border-r-3 rounded  '>DashBoard</h1>
+            <h1 className='w-full py-3 px-7  border-r-3 rounded '>Orders</h1>
+            <h1 className='w-full py-3 px-7 border-r-3 rounded '>Wishlist</h1>
+            <h1 className='w-full py-3 px-7 border-r-3 rounded '>Profile</h1>
+            <h1 className='w-full py-3 px-7 border-r-3 rounded '>Settings</h1>
+          </div>
+        </div>
+        <div className='w-[80%] px-10 py-5 bg-gray-100'>
+          <div>
+          <h1 className='text-4xl font-bold'>DashBoard</h1>
+          <h1 className='text-[15px] font-medium pt-0.5 text-[#888888]'>Welcome back, {firstName} 👋</h1>
+          </div>
+          <div>
+            
           </div>
         </div>
       </div>
