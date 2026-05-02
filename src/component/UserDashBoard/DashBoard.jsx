@@ -10,7 +10,7 @@ function DashBoard({user}) {
   
 
   return (
-    <div className='w-full relative h-[561px]'>
+    <div className='w-full relative '>
       {
         anotherhide && (
           <>

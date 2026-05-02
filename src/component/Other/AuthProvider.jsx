@@ -8,6 +8,7 @@ import fashionProducts from './Categoryjs'
 import services from '../Other/Service'
 import  {getLocal, setLocal}  from '../UserDashBoard/js/Login'
 import { useNavigate } from 'react-router-dom'
+import dashboardData from '../Other/dash'
 export const providerContext = createContext()
 
 const AuthProvider = ({ children }) => {
@@ -62,6 +63,9 @@ const AuthProvider = ({ children }) => {
   let [hideLog, setHideLog]=useState(false)
   let [anotherhide, setAnotherhide]=useState(false)
   let [hideEdit, setHideEdit]=useState(false)
+
+  let [dashArr, setDashArr]=useState(dashboardData)
+  
 
   useEffect(()=>{
     // setLocal()
@@ -221,7 +225,7 @@ function handleChangeEdit(e){
 }
 
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit,incorrect, setIncorrect}}  >
+    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit,incorrect, setIncorrect,dashArr, setDashArr}}  >
       {children}
     </providerContext.Provider>
   )
