@@ -23,7 +23,7 @@ useEffect(()=>{
         {detail.map((elem)=>{
           return <div key={elem.id} className='flex justify-start max-sm:flex-col  max-sm:gap-7 gap-13'>
             <div className='w-[50%] max-sm:w-full h-100 overflow-hidden rounded shadow-lg'>
-              <img className='w-full h-full object-cover ' src={elem.image} alt="" />
+              <img className='w-full h-full object-cover ' src={elem.image} alt="" loading="lazy" />
             </div>
             <div>
               <h1 className='text-2xl font-medium'>{elem.name}</h1>

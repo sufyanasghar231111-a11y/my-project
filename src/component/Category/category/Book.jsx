@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { providerContext } from '../../Other/AuthProvider'
 import { BsFillHeartFill } from 'react-icons/bs'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Book = () => {
-  let {fashion,cart, setCart,addCart}=useContext(providerContext)
+  let {fashion,cart,addCart}=useContext(providerContext)
   
   return (
     <div >
@@ -30,7 +30,7 @@ const Book = () => {
              
             </div>
             <Link to={`/category/fashion/${elem.id}`}>
-            <img    className='object-cover h-full cursor-pointer w-full' src={elem.image} alt="" />
+            <img    className='object-cover h-full cursor-pointer w-full' loading='lazy' src={elem.image} alt="" />
             </Link>
           </div>
           <div className='px-4 pt-3'>

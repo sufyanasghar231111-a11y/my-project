@@ -1,15 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { providerContext } from '../Other/AuthProvider'
 import { RiAddLine, RiCloseLine, RiLoader4Line, RiUserLine } from 'react-icons/ri'
+import DashItem from '../UserDashBoard/insideDash/DashItem'
+import OrderDash from '../UserDashBoard/insideDash/OrderDash'
+import Setting from '../UserDashBoard/insideDash/Setting'
+import Wishlist from '../UserDashBoard/insideDash/Wishlist'
+import Profile from '../UserDashBoard/insideDash/Profile'
+import LogoutDash from '../UserDashBoard/insideDash/LogoutDash'
 
 function Logout({user}) {
-    let {hideLog, setHideLog, setAnotherhide, setHideEdit,dashArr, setDashArr}=useContext(providerContext)
-    const name=user.name
-    const firstName=name.trim().split(' ')[0];
-
-    const initial=(name.trim().split(' ')[0][0] + name.trim().split(' ').pop()[0]).toUpperCase()
-    let [hideBar, setHideBar]=useState(true)
-
+    let {hideLog, setHideLog, setAnotherhide, setHideEdit,hideBar,setHideBar,initial, setDashtab}=useContext(providerContext)
+    
+   
   return (
     <div className='w-full'>
          
@@ -69,40 +71,21 @@ function Logout({user}) {
           <div className='border-t border-gray-300'>
           </div>
           <div className=' flex flex-col max-sm:text-sm  pt-5'>
-            <h1 className='w-full py-3 px-7  border-r-3 rounded  '>DashBoard</h1>
-            <h1 className='w-full py-3 px-7  border-r-3 rounded '>Orders</h1>
-            <h1 className='w-full py-3 px-7 border-r-3 rounded '>Wishlist</h1>
-            <h1 className='w-full py-3 px-7 border-r-3 rounded '>Profile</h1>
-            <h1 className='w-full py-3 px-7 border-r-3 rounded '>Settings</h1>
+            <h1 onClick={()=>{setDashtab('dashboard')}} className='w-full py-3 px-7  border-r-3 rounded  '>DashBoard</h1>
+            <h1 onClick={()=>{setDashtab('order')}} className='w-full py-3 px-7  border-r-3 rounded '>Orders</h1>
+            <h1 onClick={()=>{setDashtab('wish')}} className='w-full py-3 px-7 border-r-3 rounded '>Wishlist</h1>
+            <h1 onClick={()=>{setDashtab('profile')}} className='w-full py-3 px-7 border-r-3 rounded '>Profile</h1>
+            <h1 onClick={()=>{setDashtab('setting')}} className='w-full py-3 px-7 border-r-3 rounded '>Settings</h1>
+            <h1 onClick={()=>{setDashtab('logout')}} className='w-full py-3 px-7 border-r-3 rounded '>Logout</h1>
           </div>
         </div>
         <div className={`w-[80%]  max-sm:w-full  px-10 py-10 bg-gray-100 `} >
-          <div onClick={()=>{setHideBar(false)}} className='text-sm md:hidden'>p</div>
-          <h1 className='text-4xl font-bold'>  DashBoard</h1>
-          <h1 className='text-[15px] font-medium pt-0.5 text-[#888888]'>Welcome back, {firstName} 👋</h1>
-             <div className='flex max-sm:items-center lg:justify-start lg:items-start md:justify-center md:items-center max-sm:justify-center  flex-wrap gap-6 pt-8'>
-          {
-            dashArr.map((elem)=>{
-           return <div key={elem.id} className='shadow-sm w-74  border border-indigo-100 group hover:border-indigo-200 hover:-translate-y-2 hover:shadow-lg transition-all ease-in-out duration-400  rounded-lg px-7 py-5'>
-              <div className={` flex items-center justify-center group-hover:scale-105 transition-transform  duration-400 ${elem.color}  w-10 h-10 rounded-xl`}>
-                {elem.icon}
-              </div>
-              <div className='font-bold text-3xl pt-3 pb-3'>
-                {elem.prefix}{elem.value}
-              </div>
-              <div className='text-sm text-[#888888]'>
-                {elem.title}
-              </div>
-              <div className='pt-3 text-sm text-green-500'>
-               {elem.change} {elem.description}
-              </div>
-            </div>
-            })
-          }
-
-          
-          </div>
-        
+         <DashItem />
+         <OrderDash />
+         <Setting />
+         <Wishlist />
+         <Profile />
+         <LogoutDash />
         </div>
       </div>
       

@@ -65,7 +65,12 @@ const AuthProvider = ({ children }) => {
   let [hideEdit, setHideEdit]=useState(false)
 
   let [dashArr, setDashArr]=useState(dashboardData)
-  
+   let [dashtab, setDashtab]=useState('dashboard')
+   const name=user.name
+    const firstName=name.trim().split(' ')[0];
+
+    const initial=(name.trim().split(' ')[0][0] + name.trim().split(' ').pop()[0]).toUpperCase()
+    let [hideBar, setHideBar]=useState(true)
 
   useEffect(()=>{
     // setLocal()
@@ -225,7 +230,7 @@ function handleChangeEdit(e){
 }
 
   return (
-    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit,incorrect, setIncorrect,dashArr, setDashArr}}  >
+    <providerContext.Provider value={{ data, secData, cart, setCart, addCart, addFav, fav, setFav, test, filterItem, setFilterItem, hide, setHide, change, setChange, sort, setSort, price, setPrice, filterColor, setFilterColor, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,userInput, setUserInput,handleLogout,sign, setSign,handleSignSubmit,handlechange,user, setUser,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading,notloginemail, setNotloginemail,notloginpassword,setNotloginpassword,delay, setDelay,hideLog, setHideLog,anotherhide, setAnotherhide,hideEdit, setHideEdit,handleEdit,editForm, setEditForm,handleChangeEdit,incorrect, setIncorrect,dashArr, setDashArr,dashtab, setDashtab,hideBar, setHideBar,firstName,initial}}  >
       {children}
     </providerContext.Provider>
   )

@@ -16,7 +16,7 @@ function AllCategory() {
         <div className=' lg:w-[24%] md:w-[30%] max-sm:mb-5  h-70 max-sm:w-full max-sm:h-full  shadow-sm rounded overflow-hidden'>
           <Link to='/category/fashion'>
           <div className='w-full h-50 overflow-hidden cursor-pointer'>
-            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1445205170230-053b83016050" alt="" />
+            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1445205170230-053b83016050" loading='lazy' alt="" />
           </div>
           </Link>
           <div className='flex items-center pt-4 flex-col justify-center '>
@@ -30,7 +30,7 @@ function AllCategory() {
         <div className=' lg:w-[24%] md:w-[30%] max-sm:mb-5  h-70 max-sm:w-full max-sm:h-full  shadow-sm rounded overflow-hidden'>
           <Link to='/category/electronic'>
           <div className='w-full h-50 overflow-hidden cursor-pointer'>
-            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="" />
+            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1518770660439-4636190af475" loading='lazy' alt="" />
           </div>
           </Link>
           <div className='flex items-center pt-4 flex-col justify-center '>
@@ -44,7 +44,7 @@ function AllCategory() {
         <div className=' lg:w-[24%] md:w-[30%] max-sm:mb-5  h-70 max-sm:w-full max-sm:h-full  shadow-sm rounded overflow-hidden'>
           <Link to='/category/living'>
           <div className='w-full cursor-pointer h-50 overflow-hidden '>
-            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="" />
+            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" loading='lazy' alt="" />
           </div>
           </Link>
           <div className='flex items-center pt-4 flex-col justify-center '>
@@ -58,7 +58,7 @@ function AllCategory() {
         <div className=' lg:w-[24%] md:w-[30%] max-sm:mb-5  h-70 max-sm:w-full max-sm:h-full  shadow-sm rounded overflow-hidden'>
           <Link to='/category/beauty'>
           <div className='w-full h-50 overflow-hidden cursor-pointer'>
-            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="" />
+            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" loading='lazy' alt="" />
           </div>
           </Link>
           <div className='flex items-center pt-4 flex-col justify-center '>
@@ -72,7 +72,7 @@ function AllCategory() {
         <div className=' lg:w-[24%] md:w-[30%] max-sm:mb-5  h-70 max-sm:w-full max-sm:h-full  shadow-sm rounded overflow-hidden'>
           <Link to='/category/sport'>
           <div className='w-full h-50 overflow-hidden cursor-pointer'>
-            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1517649763962-0c623066013b" alt="" />
+            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1517649763962-0c623066013b" loading='lazy' alt="" />
           </div>
           </Link>
           <div className='flex items-center pt-4 flex-col justify-center '>
@@ -86,7 +86,7 @@ function AllCategory() {
         <div className=' lg:w-[24%] md:w-[30%] max-sm:mb-5  h-70 max-sm:w-full max-sm:h-full  shadow-sm rounded overflow-hidden'>
           <Link to='/category/toy'>
           <div className='w-full h-50 overflow-hidden cursor-pointer'>
-            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1596464716127-f2a82984de30" alt="" />
+            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1596464716127-f2a82984de30" loading='lazy' alt="" />
           </div>
           </Link>
           <div className='flex items-center pt-4 flex-col justify-center '>
@@ -100,7 +100,7 @@ function AllCategory() {
         <div className=' lg:w-[24%] md:w-[30%] max-sm:mb-5  h-70 max-sm:w-full max-sm:h-full  shadow-sm rounded overflow-hidden'>
           <Link to='/category/book'>
           <div className='w-full h-50 overflow-hidden cursor-pointer'>
-            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1512820790803-83ca734da794" alt="" />
+            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1512820790803-83ca734da794" loading='lazy' alt="" />
           </div>
           </Link>
           <div className='flex items-center pt-4 flex-col justify-center '>
@@ -114,7 +114,7 @@ function AllCategory() {
         <div className=' lg:w-[24%] md:w-[30%]   h-70 max-sm:w-full max-sm:h-full  shadow-sm rounded overflow-hidden'>
           <Link to='/category/health'>
           <div className='w-full h-50 overflow-hidden cursor-pointer'>
-            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528" alt="" />
+            <img className='w-full h-full object-cover' src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528" loading='lazy' alt="" />
           </div>
           </Link>
           <div className='flex items-center pt-4 flex-col justify-center '>

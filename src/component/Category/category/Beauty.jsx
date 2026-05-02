@@ -29,7 +29,7 @@ const Beauty = () => {
               </div>
             </div>
             <Link to={`/category/fashion/${elem.id}`}>
-            <img    className='object-cover h-full cursor-pointer w-full' src={elem.image} alt="" />
+            <img    className='object-cover h-full cursor-pointer w-full' loading='lazy' src={elem.image} alt="" />
             </Link>
           </div>
           <div className='px-4 pt-3'>
