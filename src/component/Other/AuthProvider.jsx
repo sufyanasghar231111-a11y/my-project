@@ -68,22 +68,18 @@ const AuthProvider = ({ children }) => {
   }  
   
     let [userInput, setUserInput]=useState([])
-    let [user, setUser]=useState(() => {
-  try {
-    return JSON.parse(localStorage.getItem("logInUser")) || null;
-  } catch {
-    return null;
-  }
-})
+    let [user, setUser]=useState(()=>{
+      let store= localStorage.getItem('logInUser')
+      return store? JSON.parse(store):null
+    })
+
 
   useEffect(() => {
  
     setLocal()
-    let {log}=getLocal()
-  setUserInput(log);
+    let data=getLocal()
+  setUserInput(data);  
 }, []);
-
-
   
     let [notName, setNotName]=useState(false)
     let [notEmail, setNotEmail]=useState(false)
@@ -139,8 +135,8 @@ function handleSignSubmit(e){
 
   setTimeout(() => {
     if(sign.name && sign.email && sign.password && sign.password.length>= 8){
-      setUser(newUser)
       localStorage.setItem('logInUser',JSON.stringify(newUser)) 
+      setUser(newUser)
       navigate('/user')
     }
     setSign({
@@ -198,11 +194,7 @@ function handleEdit(e){
 
  useEffect(()=>{
   if(user){
-
     localStorage.setItem('logInUser',JSON.stringify(user))
-  }
-  else{
-    localStorage.removeItem('logInUser')
   }
     },[user])
 
@@ -222,7 +214,7 @@ function handleChangeEdit(e){
 }     
 
   return (
-    <providerContext.Provider value={{  secData, cart, setCart, addCart, addFav, fav, setFav, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,setServiceData, setSecData,handleChangeEdit,userInput, setUserInput,user, setUser,notName, setNotName,notEmail, setNotEmail,notPassword, setNotPassword,handleEdit,handlechange,handleSignSubmit,incorrect,setIncorrect,delay,setDelay,setAnotherhide,anotherhide,handleLogout,hideEdit,setHideEdit,signloading, setSignloading,notloginpassword,setNotloginpassword,hideLog,setHideLog,notloginemail, setNotloginemail,dashArr, setDashArr,dashtab, setDashtab,firstName,initial,hideBar,setHideBar}}  >
+    <providerContext.Provider value={{  secData, cart, setCart, addCart, addFav, fav, setFav, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,setServiceData, setSecData,handleChangeEdit,userInput, setUserInput,user, setUser,notName, setNotName,notEmail, setNotEmail,notPassword, setNotPassword,handleEdit,handlechange,handleSignSubmit,incorrect,setIncorrect,delay,setDelay,setAnotherhide,anotherhide,handleLogout,hideEdit,setHideEdit,signloading, setSignloading,notloginpassword,setNotloginpassword,hideLog,setHideLog,notloginemail, setNotloginemail,dashArr, setDashArr,dashtab, setDashtab,hideBar,setHideBar,firstName,initial}}  >
       {children}
     </providerContext.Provider>
   )

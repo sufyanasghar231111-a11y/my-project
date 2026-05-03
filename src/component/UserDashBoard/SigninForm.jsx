@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import gradient4 from '../../../src/assets/gradient4.png'
 import logo from '../../../src/assets/logo.png'
 import DashBoard from './DashBoard'
@@ -8,7 +8,11 @@ import { providerContext } from '../Other/AuthProvider'
 
 function SigninForm() {
     let {sign,handleSignSubmit,handlechange,user,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading}=useContext(providerContext)
-   
+    
+ 
+ useEffect(()=>{
+    localStorage.setItem('logInUser', JSON.stringify(user))
+ },[user])
   return (
     <div className=''>
         {

@@ -10,18 +10,22 @@ import NavBar from './component/home/Body/NavBar.jsx'
 import HomeContext from './component/ContextApi/HomeContext.jsx'
 import ShopContext from './component/ContextApi/ShopContext.jsx'
 
-
 createRoot(document.getElementById('root')).render(
-    <StrictMode>
   <BrowserRouter>
   <AuthProvider>
+
     <ShopContext >
   <HomeContext >
+    <StrictMode>
+  <NavBar />
+  <ScrollComponent />
+  <Animation >
     <App />
+  </Animation>
+  </StrictMode>
   </HomeContext>
     </ShopContext>
   </AuthProvider>
   </BrowserRouter>
-  </StrictMode>
 
 )

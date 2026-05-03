@@ -16,10 +16,12 @@ const UserDash = () => {
         setUser(data)
       }
     },[])
+    
 
   function handleSubmit(email,password){
 
       let fetch=userInput.find((e)=> e.email=== email && e.password === password)
+
       if(fetch){
         localStorage.setItem('logInUser',JSON.stringify(fetch))
         setUser(fetch)
@@ -27,9 +29,8 @@ const UserDash = () => {
     else{
       setIncorrect(true)
     }
-
   }
-  
+
   return (
     <div className='pt-15'>
      
