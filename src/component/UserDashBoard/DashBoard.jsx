@@ -2,11 +2,11 @@ import React, {  useContext } from 'react'
 import { FaShoppingBag, FaUndo, FaTimesCircle, FaCheckCircle } from 'react-icons/fa';
 import Logout from './Logout';
 import { RiCloseLine, RiLoader4Line } from 'react-icons/ri';
-import { dashProvider } from '../../ContextApi/DashContext';
+import { providerContext } from '../Other/AuthProvider';
 
 function DashBoard({user}) {  
 
-  let {handleLogout,anotherhide, setAnotherhide,delay,hideEdit, setHideEdit,handleEdit,editForm,handleChangeEdit}=useContext(dashProvider)
+  let {handleLogout,anotherhide, setAnotherhide,delay,hideEdit, setHideEdit,handleEdit,editForm,handleChangeEdit}=useContext(providerContext)
   
 
   return (

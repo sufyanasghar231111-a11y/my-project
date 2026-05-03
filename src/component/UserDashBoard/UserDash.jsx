@@ -2,13 +2,12 @@ import React, { useContext, useEffect } from 'react'
 import NavBar from '../home/Body/NavBar'
 import LoginForm from './LoginForm'
 import DashBoard from './DashBoard'
-import { dashProvider } from '../../ContextApi/DashContext'
+import { providerContext } from '../Other/AuthProvider'
 
 const UserDash = () => {
-    let {userInput,setUserInput,user, setUser, setIncorrect}=useContext(dashProvider)
-    
+    let {userInput,setUserInput,user, setUser, setIncorrect}=useContext(providerContext)
+
     useEffect(()=>{
-      console.log("setUserInput:", setUserInput);
       let pushData=JSON.parse(localStorage.getItem('users')) || []
       setUserInput(pushData)
 

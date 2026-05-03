@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { dashProvider } from '../../../ContextApi/DashContext'
+import { providerContext } from '../../Other/AuthProvider'
 
 const LogoutDash = () => {
-  let {handleLogout}=useContext(dashProvider)
+  let {handleLogout}=useContext(providerContext)
   return (
     <div>
       <button onClick={handleLogout}>Logout</button>

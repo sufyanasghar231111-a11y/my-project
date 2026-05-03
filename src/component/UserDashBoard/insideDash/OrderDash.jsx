@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-// import { providerContext } from '../../Other/AuthProvider'
-import { dashProvider } from '../../../ContextApi/DashContext'
+
+import { providerContext } from '../../Other/AuthProvider'
 
 const OrderDash = () => {
-  let {dashtab}=useContext(dashProvider)
+  let {dashtab}=useContext(providerContext)
   return (
 
     <div>

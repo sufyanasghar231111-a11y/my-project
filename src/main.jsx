@@ -7,28 +7,21 @@ import AuthProvider from './component/Other/AuthProvider.jsx'
 import ScrollComponent from './component/Other/ScrollComponent.jsx'
 import Animation from './component/Other/Animation.jsx'
 import NavBar from './component/home/Body/NavBar.jsx'
-import HomeContext from './ContextApi/HomeContext.jsx'
-import ShopContext from './ContextApi/ShopContext.jsx'
-import DashContext from './ContextApi/DashContext.jsx'
+import HomeContext from './component/ContextApi/HomeContext.jsx'
+import ShopContext from './component/ContextApi/ShopContext.jsx'
+
 
 createRoot(document.getElementById('root')).render(
+    <StrictMode>
   <BrowserRouter>
   <AuthProvider>
-    <DashContext>
-
     <ShopContext >
   <HomeContext >
-    <StrictMode>
-  <NavBar />
-  <ScrollComponent />
-  <Animation >
     <App />
-  </Animation>
-  </StrictMode>
   </HomeContext>
     </ShopContext>
-    </DashContext>
   </AuthProvider>
   </BrowserRouter>
+  </StrictMode>
 
 )

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 
  const users = [
   {
@@ -19,4 +18,3 @@ export  function setLocal(){
         let log=JSON.parse(localStorage.getItem('users'))
         return {log} || []
     }
-    

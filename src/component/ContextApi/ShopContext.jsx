@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useMemo, useState } from 'react'
-import Change from '../component/Other/Change'
+import Change from '../Other/Change'
 
 export const  shopProvider=createContext()
 

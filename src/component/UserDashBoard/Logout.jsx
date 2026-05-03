@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-// import { providerContext } from '../Other/AuthProvider'
+import { providerContext } from '../Other/AuthProvider'
 import { RiAddLine, RiCloseLine, RiLoader4Line, RiUserLine } from 'react-icons/ri'
 import DashItem from '../UserDashBoard/insideDash/DashItem'
 import OrderDash from '../UserDashBoard/insideDash/OrderDash'
@@ -7,10 +7,9 @@ import Setting from '../UserDashBoard/insideDash/Setting'
 import Wishlist from '../UserDashBoard/insideDash/Wishlist'
 import Profile from '../UserDashBoard/insideDash/Profile'
 import LogoutDash from '../UserDashBoard/insideDash/LogoutDash'
-import { dashProvider } from '../../ContextApi/DashContext'
 
 function Logout({user}) {
-    let {hideLog, setHideLog, setAnotherhide, setHideEdit,hideBar,setHideBar,initial, setDashtab}=useContext(dashProvider)
+    let {hideLog, setHideLog, setAnotherhide, setHideEdit,hideBar,setHideBar,initial, setDashtab}=useContext(providerContext)
     
    
   return (

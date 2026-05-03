@@ -1,14 +1,13 @@
 import React, { useContext } from 'react'
 import gradient4 from '../../../src/assets/gradient4.png'
 import logo from '../../../src/assets/logo.png'
-// import { providerContext } from '../Other/AuthProvider'
 import DashBoard from './DashBoard'
 import { Link } from 'react-router-dom'
 import { RiLoader4Line } from 'react-icons/ri'
-import { dashProvider } from '../../ContextApi/DashContext'
+import { providerContext } from '../Other/AuthProvider'
 
 function SigninForm() {
-    let {sign,handleSignSubmit,handlechange,user,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading}=useContext(dashProvider)
+    let {sign,handleSignSubmit,handlechange,user,notName, setNotName,notPassword, setNotPassword,notEmail,setNotEmail,signloading}=useContext(providerContext)
    
   return (
     <div className=''>

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react'
-import  { Route, Routes, useLocation } from 'react-router-dom'
+import React from 'react'
+import  { Route, Routes } from 'react-router-dom'
 import Home from './component/home/Body/Home'
 import Shop from './component/shop/Shop'
 import About from './component/About/About'
@@ -20,13 +20,18 @@ import Beauty from './component/Category/category/Beauty'
 import FashionCategory from './component/otherCategory/FashionCategory'
 import gsap from 'gsap'
 import SigninForm from './component/UserDashBoard/SigninForm'
+import Animation from './component/Other/Animation'
+import NavBar from './component/home/Body/NavBar'
+import ScrollComponent from './component/Other/ScrollComponent'
 
 function App() {
   
   
   return (
     <div  className=''>
-      
+      <NavBar />
+  <ScrollComponent />
+  <Animation >
       <Routes>
         <Route  path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />} />
@@ -51,6 +56,7 @@ function App() {
         <Route path='/fav' element={<Fav />} />
         <Route path='/cart' element={<Cart />} />
       </Routes>
+      </Animation>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { RiCheckLine, RiCloseFill, RiFilterLine, RiStarSLine } from 'react-icons/ri'
-import { shopProvider } from '../../../ContextApi/ShopContext'
+import { shopProvider } from '../../ContextApi/ShopContext'
 
 
 function Filter() {

@@ -3,7 +3,7 @@ import { providerContext } from '../../../Other/AuthProvider';
 import {RiArrowDropRightLine, RiArrowLeftSLine } from "react-icons/ri";
 import {RiArrowRightSLine,RiPokerHeartsFill  } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import { homeProvider } from '../../../../ContextApi/HomeContext';
+import { homeProvider } from '../../../ContextApi/HomeContext';
 function Section2() {
     let {secData,cart,addCart,fav,addFav}=useContext(providerContext)
     

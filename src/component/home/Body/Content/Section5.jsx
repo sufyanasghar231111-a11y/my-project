@@ -4,7 +4,7 @@ import { RiArrowLeftSLine, RiArrowRightSLine, RiCustomerServiceLine, RiStarSFill
 import { FaRegThumbsUp, FaThumbsUp } from 'react-icons/fa';
 import right from '../../../../assets/right.png'
 // import { providerContext } from '../../../Other/AuthProvider';
-import { homeProvider } from '../../../../ContextApi/HomeContext';
+import { homeProvider } from '../../../ContextApi/HomeContext';
 
 function Section5() {
    let {test,next,handleNext, handlePre}=useContext(homeProvider)

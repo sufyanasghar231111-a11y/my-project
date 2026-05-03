@@ -8,7 +8,7 @@ import {RiArrowDropRightLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { homeProvider } from '../../../../ContextApi/HomeContext';
+import { homeProvider } from '../../../ContextApi/HomeContext';
 
 gsap.registerPlugin(ScrollTrigger);
 

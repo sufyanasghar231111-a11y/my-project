@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
-import categories from '../component/Other/Data'
-import testimonials from '../component/Other/CustomerTestimonials'
+import categories from '../Other/Data'
+import testimonials from '../Other/CustomerTestimonials'
 
 export const  homeProvider=createContext()
 

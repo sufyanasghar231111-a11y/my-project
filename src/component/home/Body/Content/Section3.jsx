@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import gradient from '../../../../assets/gradient.png'
 import { RiArrowRightLine } from 'react-icons/ri'
 import {  Link } from 'react-router-dom'
-import { homeProvider } from '../../../../ContextApi/HomeContext'
+import { homeProvider } from '../../../ContextApi/HomeContext';
 
 
 

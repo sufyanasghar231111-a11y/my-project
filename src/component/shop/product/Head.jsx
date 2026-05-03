@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { RiArrowUpDownFill, RiBox3Line, RiEqualizerLine, RiLoopRightLine } from 'react-icons/ri'
-import { shopProvider } from '../../../ContextApi/ShopContext'
+import { shopProvider } from '../../ContextApi/ShopContext'
 
 function Head() {
     let {  hide, setHide, setChange, change,sort ,setSort,setFilterColor } = useContext(shopProvider)
