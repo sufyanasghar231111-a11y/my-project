@@ -10,6 +10,7 @@ import {getLocal, setLocal} from '../UserDashBoard/js/Login'
 
 export const providerContext = createContext()
 
+
 const AuthProvider = ({ children }) => {
 
   let [fashion, setFashion] = useState(fashionProducts)
@@ -66,22 +67,7 @@ const AuthProvider = ({ children }) => {
     }
     setFav(newfav)
   }  
-  
-    let [userInput, setUserInput]=useState([])
-    let [user, setUser]=useState(()=>{
-      let store= localStorage.getItem('logInUser')
-      return store? JSON.parse(store):null
-    })
-
-
-  useEffect(() => {
- 
-    setLocal()
-    let data=getLocal()
-  setUserInput(data);  
-}, []);
-  
-    let [notName, setNotName]=useState(false)
+      let [notName, setNotName]=useState(false)
     let [notEmail, setNotEmail]=useState(false)
     let [notPassword, setNotPassword]=useState(false)
     let [signloading, setSignloading]=useState(false)
@@ -95,10 +81,19 @@ const AuthProvider = ({ children }) => {
    let [dashtab, setDashtab]=useState('dashboard')
    let [hideBar, setHideBar]=useState(true)
 
+  
+    let [userInput, setUserInput]=useState([])
+    let [user, setUser]=useState(()=>{
+      let store= localStorage.getItem('logInUser')
+      return store? JSON.parse(store):null
+    })
 
-   const name = user?.name || '';  
-  const firstName = name.trim().split(' ')[0];
-  const initial = (name.trim().split(' ')[0][0] + name.trim().split(' ').pop()[0]).toUpperCase();
+  useEffect(() => {
+ 
+    // setLocal()
+    let data=getLocal()
+  setUserInput(data);  
+}, []);
 
       function handleLogout(){
     setTimeout(() => {
@@ -150,7 +145,7 @@ function handleSignSubmit(e){
 
   
   setSignloading(true)
-  setUserInput((prev) => [...(prev || []), newUser])
+  // setUserInput((prev) => [...(prev || []), newUser])
   let data=JSON.parse(localStorage.getItem('users')) || []
   data.push(newUser)
   localStorage.setItem('users', JSON.stringify(data))
@@ -214,7 +209,7 @@ function handleChangeEdit(e){
 }     
 
   return (
-    <providerContext.Provider value={{  secData, cart, setCart, addCart, addFav, fav, setFav, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,setServiceData, setSecData,handleChangeEdit,userInput, setUserInput,user, setUser,notName, setNotName,notEmail, setNotEmail,notPassword, setNotPassword,handleEdit,handlechange,handleSignSubmit,incorrect,setIncorrect,delay,setDelay,setAnotherhide,anotherhide,handleLogout,hideEdit,setHideEdit,signloading, setSignloading,notloginpassword,setNotloginpassword,hideLog,setHideLog,notloginemail, setNotloginemail,dashArr, setDashArr,dashtab, setDashtab,hideBar,setHideBar,firstName,initial}}  >
+    <providerContext.Provider value={{  secData, cart, setCart, addCart, addFav, fav, setFav, fashion, setFashion, detail, setDetail, serviceData, loading, setLoading, inputs, setInputs, tab, setTab,setServiceData, setSecData,handleChangeEdit,userInput, setUserInput,user, setUser,notName, setNotName,notEmail, setNotEmail,notPassword, setNotPassword,handleEdit,handlechange,handleSignSubmit,incorrect,setIncorrect,delay,setDelay,setAnotherhide,anotherhide,handleLogout,hideEdit,setHideEdit,signloading, setSignloading,notloginpassword,setNotloginpassword,hideLog,setHideLog,notloginemail, setNotloginemail,dashArr, setDashArr,dashtab, setDashtab,hideBar,setHideBar,sign,setSign}}  >
       {children}
     </providerContext.Provider>
   )

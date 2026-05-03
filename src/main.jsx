@@ -13,7 +13,6 @@ import ShopContext from './component/ContextApi/ShopContext.jsx'
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   <AuthProvider>
-
     <ShopContext >
   <HomeContext >
     <StrictMode>

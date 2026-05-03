@@ -9,9 +9,11 @@ import Profile from '../UserDashBoard/insideDash/Profile'
 import LogoutDash from '../UserDashBoard/insideDash/LogoutDash'
 
 function Logout({user}) {
-    let {hideLog, setHideLog, setAnotherhide, setHideEdit,hideBar,setHideBar,initial, setDashtab}=useContext(providerContext)
+    let {hideLog, setHideLog, setAnotherhide, setHideEdit,hideBar,setHideBar, setDashtab}=useContext(providerContext)
     
-   
+     const name = user.name ;  
+  const firstName = name.trim().split(' ')[0];
+  const initial = (name.trim().split(' ')[0][0] + name.trim().split(' ').pop()[0]).toUpperCase();
   return (
     <div className='w-full'>
          
@@ -80,7 +82,7 @@ function Logout({user}) {
           </div>
         </div>
         <div className={`w-[80%]  max-sm:w-full  px-10 py-10 bg-gray-100 `} >
-         <DashItem />
+         <DashItem firstName={firstName} />
          <OrderDash />
          <Setting />
          <Wishlist />
